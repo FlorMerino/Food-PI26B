@@ -3,7 +3,7 @@
 # Blog Food
 
 <p align="right">
-  <img height="200" src="./cooking.png" />
+  <img height="200" src="https://user-images.githubusercontent.com/81165701/198902088-e4e5393c-11a0-47ae-b4cd-e4f17e15e15c.jpg" />
 </p>
 
 ## Tecnologias principales utilizadas
