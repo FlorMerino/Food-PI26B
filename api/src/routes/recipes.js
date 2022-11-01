@@ -1,78 +1,101 @@
 const { Router } = require('express');
-const {Recipe} = require('../db'); //esto viene del model de sequelize ya con el belongsToMany de la db
-const { Op } = require('sequelize');
-const { getInfoRecipe, getNameRecipe } = require('../controllers/recipes_controllers');
-
-
-
-
+const {Recipe, Diet, DishType} = require('../db');
+const { getAllRecipes, getApiRecipeInf, getDbRecipeInf, getDbRecipes, addDietsTypesToDb } = require('./utils');
 const router = Router();
 
-router.get('/', async(req,res,next)=>{
-  const {name} = req.query;
-  try {
-    const infoDb= await Recipe.findAll({
-      attributes: ['name', 'id'],
-      where:{
-        name: {
-          [Op.like]: `%${name}%` 
-        },
-     // order: [
-       // ['name', 'ASC'], //q este en orden decendente
-     // ]
-      }
-    });
-    let recipesDb =infoDb.map(e=> {return e.name})
-    const recipeApi= await getNameRecipe(name); 
+router.get("", async (req, res, next) => {
+    const {name} = req.query;
 
-    if(recipesDb.length>0 || recipeApi.length>0){
-      let nameRecipes= [...recipesDb,...recipeApi];
-      res.status(200).send(nameRecipes);
-    }
-    else res.status(404).send(`No se encontro ninguna receta con el nombre ${name}`);
-
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get('/:idReceta', async (req,res,next)=>{
-  let {idReceta}= req.params;
-  let id2Receta= parseInt(idReceta);
-  try {
-  let getRecipeDb;
-  if(typeof idReceta === 'string' && idReceta.length>10){
-    //es de mi Db
-   getRecipeDb = await Recipe.findByPk(idReceta);
-   res.status(200).send(getRecipeDb);
-
-  }else{
-    //es de mi api
-   let getRecipeApi = await getInfoRecipe(id2Receta);
-   res.status(200).send(getRecipeApi);
-  }
-  } catch (error) {
-    next(error);
-  }
-});
-
-//con este creo la receta
-router.post('/', async (req,res, next)=>{
-    const {name, dishSummary, healthScore, stepBystep} = req.body;
     try {
-        if(name && dishSummary){
-            const newRecipe = await Recipe.create({
-                name,
-                dishSummary,
-                healthScore,
-                stepBystep
-           });
-          res.send(newRecipe);
-        }else res.status(404).send('Faltan llenar campos obligatorios')
+        await addDietsTypesToDb()
+        let totalRecipes = await getAllRecipes();
+        
+        if(name){
+            let recipesList = await totalRecipes.filter(r => r.name.toLowerCase().includes(name.toLowerCase()));
+            if (recipesList.length) return res.send(recipesList); 
+            else return res.status(404).send(`There are no recipes with ${name}`);
+        } 
+        res.json(totalRecipes);  
     } catch (error) {
-       next(error); // va a ir al siguiente middleware q en este caso es el control de errores Error catching endware
+        next(error);   
+    } 
+});
+
+router.get("/created", async (req, res, next) => {
+
+    try {
+        let DbRecipes = await getDbRecipes();
+        if(DbRecipes){
+            return res.send(DbRecipes); 
+        } 
+        else return res.status(404).send(`There are no recipes recipes created yet`);
+    } catch (error) {
+        next(error);   
+    } 
+});
+
+
+router.get("/:id", async (req, res, next) => {
+    const {id} = req.params;
+
+    try {
+        if(id.length>30){
+            console.log(id)
+            const infoDb = await getDbRecipeInf(id)
+            if(!infoDb) return res.status(404).send("Recipe doesn`t exist")
+            return res.send(infoDb)
+        }
+       
+        const apiInfo = await getApiRecipeInf(id)
+        if(!apiInfo) return res.status(404).send("Recipe doesn`t exist")
+        return res.send(apiInfo)
+
+    } catch (error) {
+        next(error);
+    }
+})
+
+
+router.post("", async (req, res, next) => {
+    const {name, summary,healthScore, image, steps, diets, dishTypes} = req.body;
+    try {
+        if(!name || !summary || !steps )
+           return res.status(400).send("Pleace, complete the form");        
+
+
+        let newRecipe = await Recipe.create({
+            name, summary, healthScore, image, steps
+        });
+
+        if(diets){
+          const dietDb = await Diet.findAll({
+              where : {name: diets}
+          })
+          await newRecipe.addDiet(dietDb)
+        }
+        else return res.status(400).send("You must select a type of diet");
+
+        if(dishTypes){
+            const dishTypeDb = await DishType.findAll({
+                where : {name: dishTypes}
+            })
+            await newRecipe.addDishType(dishTypeDb)
+          }
+        else return res.status(400).send("You must select a type"); 
+
+        res.status(201).send("New recipe created succesfully")
+        
+          
+
+
+    } catch (error) {
+           res.status(400).send("This recipe already exists")
     }
 });
+
+
+
+
 
 
 
