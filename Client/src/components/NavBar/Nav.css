@@ -1,0 +1,10 @@
+/* .bg-body-tertiary{
+    background-color: blue !important;
+} */
+
+.styles{
+    background-color:rgba(126, 83, 44, 0.7) !important;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}

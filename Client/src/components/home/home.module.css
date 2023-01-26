@@ -1,15 +1,8 @@
 .bkg{
-    background-image: url('../../icons/56631.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    min-height: 100vh;
-    height:100%;
-    min-width: 90vw;
-    width: 100%;
-}
+ 
+} 
 
-.filter{
+ .filter{
     display: flex;
     justify-content: center;
     gap: 10px;    
@@ -39,8 +32,8 @@
     justify-content: space-around;
     align-items: center;
     margin: 20px;
+    background-color: aqua;
 }
-
 
 
 .nav{
@@ -59,17 +52,10 @@
   align-items: center;
 }
 
-.title{
-  font-size: 30px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color:rgb(65, 27, 27) ;   
-}
 
 .link, .visited, .active {
   text-decoration:none;
 }
-
-
 
 .createBTN{
   color: rgb(0, 0, 0);
