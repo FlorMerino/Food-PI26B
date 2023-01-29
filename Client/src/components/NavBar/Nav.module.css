@@ -2,9 +2,20 @@
     background-color: blue !important;
 } */
 
-.styles{
+.navStyle{
     background-color:rgba(126, 83, 44, 0.7) !important;
     position: fixed;
     z-index: 1;
     width: 100%;
+}
+
+.positionItems{
+    justify-content: flex-end;
+}
+
+.spaceItems{
+    width: 15vw;
+}
+a{
+    text-decoration: none;
 }

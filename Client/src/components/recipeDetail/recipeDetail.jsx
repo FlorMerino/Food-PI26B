@@ -24,7 +24,7 @@ export default function Recipe() {
     return (
         <div className={styles.bkg}>
         <div className={styles.backBTN1}>
-        <Link to={'/home'}>
+        <Link to={'/'}>
             <button className={styles.backBTN}></button>          
         </Link>
         </div>

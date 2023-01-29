@@ -6,9 +6,8 @@ export default function Welcome() {
 
     return (
             <div className={styles.container}>
-                <div className={styles.carousel}>
-                    <h5>More than 100 recipes, to bring gastronomy to your table</h5>
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <section >
+                    <div id="carouselExampleAutoplaying" class={`carousel slide ${styles.carousel}`} data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="../imgs/DIETA_MEDITERRANEA_ITALIA.JPG" class="d-block w-100" alt="..." /> {/*las imagenes deben estar guardadas en public siempre y cuando sea img estaticas*/}
@@ -29,12 +28,13 @@ export default function Welcome() {
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div>
+                    <h5>Find the best recipes according to your diet, and if you can't find it, create and publish your own recipe!</h5>
+                </section>
 
-                <div >
+                <section >
                     <h1 className={styles.title}>What are we going to eat?</h1>
                     <img className={styles.dish} src="../imgs/plato-sin-fondo1.gif" alt="dish" />
-                </div>
+                </section>
             </div>
         
     )

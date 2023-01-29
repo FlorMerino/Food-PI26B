@@ -124,7 +124,7 @@ export default function AddRecipe() {
         <div className={styles.bkg}>
         <div className={styles.bkg2}>   
           <div className={styles.backBTN1}> 
-          <Link to={'/home'}>
+          <Link to={'/'}>
           <button className={styles.backBTN}></button>          
           </Link>
           </div>

@@ -1,0 +1,55 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.ContaineRecipes{
+    display: grid;
+    grid-template-columns: repeat(3,33.33%) ; 
+    /* grid-template-rows: repeat(2, 50%);  */
+    column-gap: 1rem; /* separacion entre las columnas*/
+    justify-items: center;
+    
+}
+
+
+
+
+
+ .filter{
+    display: flex;
+    justify-content: center;
+    gap: 10px;    
+    padding-top: 70px;
+}
+.recipes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    background-color: aqua;
+}
+.loading{
+    background-image: url('../../icons/loading-unscreen.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+.RefBTN{
+    background-image: url('../../icons/159657.png');
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    border: 0ch;
+    width: 25px;
+    height: 25px;
+}
+.RefBTN:hover{
+    cursor: pointer;
+    transform: scale(1.06);
+    transition: all 0.5s;
+}

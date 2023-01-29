@@ -9,15 +9,23 @@
     background-image: url('../../icons/eggs-and-spoon-on-napkin.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment:fixed;
+    background-attachment:scroll;
      min-height: 100vh;
     height:100%;
     min-width: 100vw;
     width: 100%; 
 }
+.container section{
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container h5{
+  margin-top: 5rem;
+}
 .title{
-    font-size: 5rem;
-    padding: 4rem;
+    font-size: 7vw;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:rgb(255, 42, 42) ;  
     position: absolute;
