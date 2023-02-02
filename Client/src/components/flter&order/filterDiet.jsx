@@ -13,7 +13,7 @@ export default function FilterDiet({setPage}){
     }
 
     return (  
-        <select onChange={e => handleFilter(e)} className={styles.filters}>
+        <select class="form-select" aria-label="Default select example" onChange={e => handleFilter(e)} className={styles.filters}>
             <option value="all">All Diets</option>
             <option value="gluten free">Gluten Free</option>
             <option value="ketogenic">Ketogenic</option>

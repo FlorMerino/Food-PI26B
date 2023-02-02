@@ -1,0 +1,42 @@
+.navRcp{
+    /* background-color: #fa807285; */
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem 2rem 0rem 0rem;
+    margin: 3rem 0rem 0rem 0rem;
+    padding: 1rem 8rem 2rem 3rem;
+    box-shadow: 1px 8px 10px 10px rgb(0 0 0 / 34%);
+}
+@media (min-width: 768px) {
+    .navSelect{
+       display: flex;
+       flex-direction: row;
+         
+    }
+}
+
+.navSelect select{
+    margin-right: 2rem;
+}
+.filter{
+    display: flex;
+    justify-content: center;
+    gap: 10px;    
+    margin: 6rem 0rem 6rem 0rem;
+
+}
+.RefBTN{
+    background-image: url('../../icons/159657.png');
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    border: 0ch;
+    width: 25px;
+    height: 25px;
+}
+.RefBTN:hover{
+    cursor: pointer;
+    transform: scale(1.06);
+    transition: all 0.5s;
+}

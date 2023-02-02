@@ -14,7 +14,7 @@ export default function OrderHs(){
 
     return (
         
-            <select  onChange={onSelectChange} className={styles.filters}>
+            <select class="form-select" aria-label="Default select example" onChange={onSelectChange} >
                 <option hidden>Max-Min</option>
                 <option value={"ascendent"}>Max-Min</option>
                 <option value={"descendet"}>Min-Max</option>

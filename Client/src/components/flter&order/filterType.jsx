@@ -13,7 +13,7 @@ export default function FilterType({setPage}){
     }
 
     return (
-        <select onChange={e => handleFilter(e)} className={styles.filters}>
+        <select class="form-select" aria-label="Default select example" onChange={e => handleFilter(e)} className={styles.filters}>
             <option value="all">All Dishes</option>
             <option value="main course">Main Course</option>
             <option value="main dish">Main Dish</option>

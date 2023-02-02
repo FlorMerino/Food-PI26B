@@ -12,7 +12,7 @@ export default function OrderABC(){
     }
 
     return (
-        <select  onChange={onSelectChange} className={styles.filters}>
+        <select class="form-select" aria-label="Default select example" onChange={onSelectChange} className={styles.filters}>
             <option hidden >A-Z</option>
             <option value={"atoz"}>A-Z</option>
             <option value={"ztoa"}>Z-A</option>

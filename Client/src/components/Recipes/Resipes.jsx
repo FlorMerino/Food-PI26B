@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import OrderHs from "../flter&order/orderByHs";
-import OrderABC from "../flter&order/orderbyABC";
-import FilterDiet from "../flter&order/filterDiet";
-import FilterType from "../flter&order/filterType";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipes } from "../../redux/actions";
 import styles from '../Recipes/StylesRecipes.module.css';
 import Pagination from "../pagination/pagination";
 import Recipe from "../recipe/recipe";
 import Loading from "../loading/loading";
+import NavRecipes from "../NavRecipes/NavRecipes";
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
@@ -21,20 +18,11 @@ export default function Recipes() {
   }, [dispatch])
   const max = Math.ceil(recipes.length / perPage)
 
-  function handleOnClick(e) {
-    e.preventDefault();
-    dispatch(fetchRecipes())
-  }
-
   return (
-       <div id="recipes" className={styles.container}>
-       <div className={styles.filter}>
-        
-        <OrderHs />
-        <OrderABC/>
-        <FilterDiet setPage={setPage} />
-        <FilterType setPage={setPage} />
-        <button onClick={e => handleOnClick(e)} className={styles.RefBTN}></button>
+       <div id="recipes" className={styles.containerSectionRecipe}>
+       <div className={styles.header}>
+        <h1>explore todas las recetas</h1>
+        <NavRecipes setPage={setPage} ></NavRecipes>
       </div>
       
       <div className={styles.ContaineRecipes}>
@@ -43,7 +31,7 @@ export default function Recipes() {
             recipes
               .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
               .map((r, i) =>
-                <div key={i}>
+                <div className={styles.containerCard} key={i}>
                   <Recipe
                     key={r.id}
                     id={r.id}
@@ -53,7 +41,10 @@ export default function Recipes() {
                     dishTypes={r.dishTypes}
                   />
                 </div>) :
-            <Loading />
+                <span className={styles.load}>
+                   <Loading />
+                </span>
+           
         }
       </div>
       <Pagination page={page} setPage={setPage} max={max} />
