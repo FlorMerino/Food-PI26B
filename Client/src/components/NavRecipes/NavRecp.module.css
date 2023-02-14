@@ -3,28 +3,33 @@
     width: 100%;
     height: 100%;
     border-radius: 2rem 2rem 0rem 0rem;
-    margin: 3rem 0rem 0rem 0rem;
-    padding: 1rem 8rem 2rem 3rem;
+    margin-top: 3rem;
+
     box-shadow: 1px 8px 10px 10px rgb(0 0 0 / 34%);
+}
+.containerSelect{
+    display: flex;
+    flex-direction: column;
 }
 @media (min-width: 768px) {
     .navSelect{
        display: flex;
+       justify-content: space-evenly;
        flex-direction: row;
          
     }
+    .containerSelect{
+        flex-direction: row;
+       
+    }
 }
-
+.navSelect{
+    justify-content: space-evenly !important;
+}
 .navSelect select{
     margin-right: 2rem;
 }
-.filter{
-    display: flex;
-    justify-content: center;
-    gap: 10px;    
-    margin: 6rem 0rem 6rem 0rem;
 
-}
 .RefBTN{
     background-image: url('../../icons/159657.png');
     background-color: rgba(0, 0, 0, 0);
@@ -34,6 +39,8 @@
     border: 0ch;
     width: 25px;
     height: 25px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .RefBTN:hover{
     cursor: pointer;

@@ -9,23 +9,37 @@ import NavRecipes from "../NavRecipes/NavRecipes";
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
-  const [page, setPage] = useState(1)
-  const [perPage, setPerPage] = useState(9)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchRecipes())
   }, [dispatch])
+
+
+  /*Paginacion*/
+  const [page, setPage] = useState(1)
+  const [perPage, setPerPage] = useState(8)
+
   const max = Math.ceil(recipes.length / perPage)
+  const nextPage = () => {
+    setPage(parseInt(page) + 1);
+  };
+
+  const previusPage = () => {
+    setPage(parseInt(page) - 1);
+  };
+
 
   return (
-       <div id="recipes" className={styles.containerSectionRecipe}>
-       <div className={styles.header}>
+    <div id="recipes" className={styles.containerAllSection}>
+      <div className={styles.header}>
         <h1>explore todas las recetas</h1>
         <NavRecipes setPage={setPage} ></NavRecipes>
       </div>
-      
-      <div className={styles.ContaineRecipes}>
+
+
+      <div className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
+        
         {
           recipes.length ?
             recipes
@@ -41,14 +55,21 @@ export default function Recipes() {
                     dishTypes={r.dishTypes}
                   />
                 </div>) :
-                <span className={styles.load}>
-                   <Loading />
-                </span>
-           
+            <span className={styles.load}>
+              <Loading />
+            </span>
+
         }
-      </div>
-      <Pagination page={page} setPage={setPage} max={max} />
+        
+       <button className={styles.prevBTN} onClick={previusPage} disabled={page === 1}></button>
+       <button className={styles.nextBTN} onClick={nextPage} disabled={page === max}></button>
+       <div className={styles.PaginationBTN} >
+       <button className={styles.prev} onClick={previusPage} disabled={page === 1}></button>
+       <button className={styles.next} onClick={nextPage} disabled={page === max}></button>
        </div>
-    
+      </div>
+
+    </div>
+
   )
 }
