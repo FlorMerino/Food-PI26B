@@ -71,12 +71,12 @@ export default function Recipes() {
        <button className={styles.prev} onClick={previusPage} disabled={page === 1}></button>
        <button className={styles.next} onClick={nextPage} disabled={page === max}></button>
        </div>
-       <div className={styles.BTNArrowUp}>
+      
+      </div>
+      
+      <div className={styles.BTNArrowUp}>
       <i> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></i>
       </div>
-      </div>
-      
-      
 
     </div>
 

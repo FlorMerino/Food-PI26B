@@ -59,16 +59,19 @@
         display:flex !important;
        
     }
+    .BTNArrowUp{
+        display:block !important ;
+    }
 
 }
 .BTNArrowUp{
-    /* position: relative;
-    align-self: flex-end;
-    padding: 1rem;
-    margin-right: 1rem; */
-    position: fixed;
+    display: none;
     z-index: 1;
-    width: 100%;
+    position: fixed;
+    width: 3rem;
+    transform: translate(1100%, -1150%);
+    height: 1rem;
+    font-size: 3rem;
 }
 .PaginationBTN{
   display: none;
