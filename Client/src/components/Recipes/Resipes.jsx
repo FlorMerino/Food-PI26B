@@ -6,6 +6,7 @@ import Pagination from "../pagination/pagination";
 import Recipe from "../recipe/recipe";
 import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
+import {IoIosArrowUp,IoIosArrowDropupCircle} from 'react-icons/io';
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
@@ -32,14 +33,15 @@ export default function Recipes() {
 
   return (
     <div id="recipes" className={styles.containerAllSection}>
+     
       <div className={styles.header}>
         <h1>explore todas las recetas</h1>
         <NavRecipes setPage={setPage} ></NavRecipes>
       </div>
 
-
+     
       <div className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
-        
+    
         {
           recipes.length ?
             recipes
@@ -60,14 +62,21 @@ export default function Recipes() {
             </span>
 
         }
-        
+         
+     
        <button className={styles.prevBTN} onClick={previusPage} disabled={page === 1}></button>
        <button className={styles.nextBTN} onClick={nextPage} disabled={page === max}></button>
+
        <div className={styles.PaginationBTN} >
        <button className={styles.prev} onClick={previusPage} disabled={page === 1}></button>
        <button className={styles.next} onClick={nextPage} disabled={page === max}></button>
        </div>
+       <div className={styles.BTNArrowUp}>
+      <i> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></i>
       </div>
+      </div>
+      
+      
 
     </div>
 
