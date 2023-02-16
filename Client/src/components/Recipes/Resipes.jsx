@@ -40,7 +40,7 @@ export default function Recipes() {
       </div>
 
      
-      <div className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
+      <div id="firstRecipe" className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
     
         {
           recipes.length ?
@@ -75,7 +75,7 @@ export default function Recipes() {
       </div>
       
       <div className={styles.BTNArrowUp}>
-      <i> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></i>
+      < a href="#firstRecipe"> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></a>
       </div>
 
     </div>
