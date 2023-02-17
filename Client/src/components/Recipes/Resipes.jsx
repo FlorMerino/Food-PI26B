@@ -34,13 +34,13 @@ export default function Recipes() {
   return (
     <div id="recipes" className={styles.containerAllSection}>
      
-      <div className={styles.header}>
+      <div  id="firstRecipe" className={styles.header}>
         <h1>explore todas las recetas</h1>
         <NavRecipes setPage={setPage} ></NavRecipes>
       </div>
 
      
-      <div id="firstRecipe" className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
+      <div className={recipes.length > 0 ? styles.ContaineRecipes : styles.ContainerNotRecipes}>
     
         {
           recipes.length ?
