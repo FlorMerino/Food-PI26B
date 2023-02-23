@@ -59,22 +59,32 @@
         display:flex !important;
        
     }
-    .BTNArrowUp{
+    .arrowUpContainer{
         display:block !important ;
     }
 
 }
-.BTNArrowUp{
+.arrowUpContainer{
     display: none;
     z-index: 1;
     position: fixed;
     bottom: 25%;
     right: 1%;
-    width: 3rem;
-    height: 1rem;
-    font-size: 3rem;
+    width: 4rem;
+    height: 4rem;
+    
 }
-.PaginationBTN{
+.arrowUpNotContainer{
+  background-color: blue;
+}
+.arrowUpContainer a{
+ position: absolute;
+ font-size: 3rem;
+ right: 1%;
+}
+
+
+.visibilityBTN{
   display: none;
 }
 .header{

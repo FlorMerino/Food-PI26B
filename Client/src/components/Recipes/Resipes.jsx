@@ -6,7 +6,7 @@ import Pagination from "../pagination/pagination";
 import Recipe from "../recipe/recipe";
 import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
-import {IoIosArrowUp,IoIosArrowDropupCircle} from 'react-icons/io';
+import {IoIosArrowDropupCircle} from 'react-icons/io';
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
@@ -16,6 +16,18 @@ export default function Recipes() {
     dispatch(fetchRecipes())
   }, [dispatch])
 
+  /*Funcion para arrowUp*/
+
+  const [styleArrowUp, setstyleArrowUp] = useState('arrowUpNotContainer')
+
+  window.onscroll= function (){
+    console.log(document.documentElement.scrollTop)
+    if(document.documentElement.scrollTop >950){
+      document.querySelector('.arrowUpContainer').classList.add('.arrowUpNotContainer')
+    }else{
+      setstyleArrowUp('arrowUpNotContainer')
+    }
+  }
 
   /*Paginacion*/
   const [page, setPage] = useState(1)
@@ -64,18 +76,20 @@ export default function Recipes() {
         }
          
      
-       <button className={styles.prevBTN} onClick={previusPage} disabled={page === 1}></button>
-       <button className={styles.nextBTN} onClick={nextPage} disabled={page === max}></button>
+       <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}></button>
+       <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}></button>
 
-       <div className={styles.PaginationBTN} >
+       <div className={styles.visibilityBTN} >
        <button className={styles.prev} onClick={previusPage} disabled={page === 1}></button>
        <button className={styles.next} onClick={nextPage} disabled={page === max}></button>
        </div>
       
       </div>
       
-      <div className={styles.BTNArrowUp}>
+      <div className={styles.arrowUpContainer}>
+      
       < a href="#firstRecipe"> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></a>
+      
       </div>
 
     </div>
