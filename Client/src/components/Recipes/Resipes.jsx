@@ -18,14 +18,14 @@ export default function Recipes() {
 
   /*Funcion para arrowUp*/
 
-  const [styleArrowUp, setstyleArrowUp] = useState('arrowUpNotContainer')
+  const [ArrowUp, setstyleArrowUp] = useState(false)
 
   window.onscroll= function (){
     console.log(document.documentElement.scrollTop)
     if(document.documentElement.scrollTop >950){
-      document.querySelector('.arrowUpContainer').classList.add('.arrowUpNotContainer')
+      setstyleArrowUp(true)
     }else{
-      setstyleArrowUp('arrowUpNotContainer')
+      setstyleArrowUp(false)
     }
   }
 
@@ -86,11 +86,13 @@ export default function Recipes() {
       
       </div>
       
-      <div className={styles.arrowUpContainer}>
+      {
+       ArrowUp && (<div className={styles.arrowUpContainer}>
       
-      < a href="#firstRecipe"> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></a>
-      
-      </div>
+        < a href="#firstRecipe"> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></a>
+        
+        </div>)
+      }
 
     </div>
 
