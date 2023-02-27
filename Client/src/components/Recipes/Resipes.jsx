@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipes } from "../../redux/actions";
 import styles from '../Recipes/StylesRecipes.module.css';
-import Pagination from "../pagination/pagination";
 import Recipe from "../recipe/recipe";
 import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
-import {IoIosArrowDropupCircle} from 'react-icons/io';
+import ArrowUpBTN from "../ArrowUp/BTNArrowUp";
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
@@ -16,19 +15,7 @@ export default function Recipes() {
     dispatch(fetchRecipes())
   }, [dispatch])
 
-  /*Funcion para arrowUp*/
-
-  const [ArrowUp, setstyleArrowUp] = useState(false)
-
-  window.onscroll= function (){
-    console.log(document.documentElement.scrollTop)
-    if(document.documentElement.scrollTop >950){
-      setstyleArrowUp(true)
-    }else{
-      setstyleArrowUp(false)
-    }
-  }
-
+  
   /*Paginacion*/
   const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(8)
@@ -86,13 +73,7 @@ export default function Recipes() {
       
       </div>
       
-      {
-       ArrowUp && (<div className={styles.arrowUpContainer}>
-      
-        < a href="#firstRecipe"> <IoIosArrowDropupCircle></IoIosArrowDropupCircle></a>
-        
-        </div>)
-      }
+      <ArrowUpBTN></ArrowUpBTN>
 
     </div>
 
