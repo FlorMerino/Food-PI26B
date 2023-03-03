@@ -5,6 +5,9 @@ import OrderABC from "../flter&order/orderbyABC";
 import FilterDiet from "../flter&order/filterDiet";
 import FilterType from "../flter&order/filterType";
 import { fetchRecipes } from "../../redux/actions";
+import SearchBar from '../searchBar/searchBar';
+import {FiRefreshCcw} from 'react-icons/fi';
+
 
 export default function NavRecipes({ setPage }) {
 
@@ -24,9 +27,10 @@ export default function NavRecipes({ setPage }) {
           <FilterType setPage={setPage} />
         </div>
         <div>
-          <button onClick={e => handleOnClick(e)} className={styles.RefBTN}></button>
+          <button onClick={e => handleOnClick(e)} className={styles.RefBTN} ><FiRefreshCcw></FiRefreshCcw></button>
         </div>
       </div>
+      <SearchBar></SearchBar>
     </nav>
   )
 }

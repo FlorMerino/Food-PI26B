@@ -1,33 +1,34 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchRecipes } from '../../redux/actions';
 import styles from '../searchBar/searchBar.module.css'
+import { BiSearchAlt2 } from 'react-icons/bi';
 
-export default function SearchBar({setPage}) {
-    const[search ,setSearch] = useState('')
+
+export default function SearchBar({ setPage }) {
+    const [search, setSearch] = useState('')
 
     let dispatch = useDispatch()
 
-    function onSubmit(e){
+    function onSubmit(e) {
         e.preventDefault();
         dispatch(searchRecipes(search));
-        setSearch(''); 
+        setSearch('');
         setPage(1);
     }
 
 
-    function onInputChange(e){
+    function onInputChange(e) {
         e.preventDefault();
-        setSearch(e.target.value);  
+        setSearch(e.target.value);
     }
 
-    
+
     return (
-        <div>
-            <form className={styles.search} onSubmit={(e) => {onSubmit(e)}}>
-              <input className={styles.input} type='text' onChange={onInputChange} value={search} placeholder="What are you looking for?"/> 
-              <button  className={styles.btn}><input type='submit' hidden value=""/></button>
-            </form>
+       
+        <div class={`input-group mb-3 ${styles.conteinerSearch}`} >
+            <input type="text" class="form-control" placeholder="Search recipe..." onChange={onInputChange} value={search} aria-label="Recipient's username" aria-describedby="button-addon2"/>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={event=> onSubmit(event)}> <BiSearchAlt2></BiSearchAlt2></button>
         </div>
     )
 }

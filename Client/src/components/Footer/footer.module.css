@@ -1,0 +1,126 @@
+/* .footerConteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 20%;
+    font-size: 13px;
+    width: 100%;
+    height: 20vh;
+    background-color: darksalmon;
+}
+
+.conteiner2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+} */
+
+.footer {
+  color: #fff;
+  margin-top: 20%;
+    width: 100%;
+    /* height: 20vh;    */
+    background: linear-gradient(105deg,#e6a06e ,#942f09);
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+/*END FOOTER SOCIAL DESIGN*/
+
+@media only screen and (max-width:768px) { 
+.single_footer{margin-bottom:30px;}
+}
+.single_footer h4 {
+    
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+.single_footer h4::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 30%;
+    background: #fff;
+    margin-top: 5%;
+   margin-left: 15%;
+}
+
+.contact_social ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+/*START SOCIAL PROFILE CSS*/
+.social_profile {
+  margin-top:2rem;
+  display: flex;
+  flex-direction: column;
+}
+.social_profile div{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+ }
+.social_profile ul{
+  display: flex;
+list-style: outside none none;
+margin: 0;
+padding: 0;
+}
+.social_profile ul li{float:left;}
+.social_profile ul li a {
+    text-align: center;
+    border: 0px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    margin: 0px 5px;
+    font-size: 1.5rem;
+    color: #fff;
+    border-radius: 3rem;
+    width: 50px;
+    height: 50px;
+    line-height: -1rem;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.social_profile ul li a svg{
+  vertical-align: bottom;
+}
+.social_profile p{
+  font-size: 1rem;
+}
+@media only screen and (max-width:768px) { 
+.social_profile ul li a{margin-right:10px;margin-bottom:10px;}
+}
+@media only screen and (max-width:480px) { 
+.social_profile ul li a{
+    width:3rem;
+    height:3rem;
+}
+}
+.social_profile ul li a:hover{
+background:#ff3666;
+border: 1px solid #ff3666;
+color:#fff;
+border:0px;
+}
+/*END SOCIAL PROFILE CSS*/
+.copyright {
+    margin-top: 70px;
+    padding-top: 40px;
+    color:#fff;
+    font-size: 15px;
+    border-top: 1px solid rgba(255,255,255,0.4);
+    text-align: center;
+}
+.copyright a{
+  color:#f3ef00;
+  transition: all 0.2s ease 0s;
+}
+.copyright a:hover{
+  color:#d80041d7;
+}
