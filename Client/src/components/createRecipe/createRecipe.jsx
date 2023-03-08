@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDiets, getDishTypes, postRecipes } from "../../redux/actions";
-import styles from '../createRecipe/createRecipe.module.css'
+import styles from '../createRecipe/createRecipe.module.css';
+import Select from 'react-select';
+
 
 function validate(input){
     let error = {};
@@ -150,6 +152,7 @@ export default function AddRecipe() {
   
               <div className={styles.diets1}>
               <p>Diets</p>
+              <Select options={listDiets} ></Select>
                   {listDiets.map((d,index) => {
                       return(
                       <div className={styles.diets}> 

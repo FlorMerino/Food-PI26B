@@ -7,6 +7,7 @@ import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
 import ArrowUpBTN from "../ArrowUp/BTNArrowUp";
 
+
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
   const dispatch = useDispatch()
@@ -34,7 +35,22 @@ export default function Recipes() {
     <div id="recipes" className={styles.containerAllSection}>
      
       <div  id="firstRecipe" className={styles.header}>
-        <h1>explore todas las recetas</h1>
+        <div className={styles.subTitles}>
+         <h1>
+           <ul>
+             <li className={styles.item}>
+              Explora +100 recetas!
+             </li>
+             <li className={styles.item}>
+               Busca tu dieta y descubre recetas
+             </li>
+             <li className={styles.item}>
+               Los platos del mundo a tu mesa
+             </li>
+           </ul>
+         </h1>
+        </div>
+        
         <NavRecipes setPage={setPage} ></NavRecipes>
       </div>
 
