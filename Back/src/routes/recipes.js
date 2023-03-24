@@ -2,6 +2,20 @@ const { Router } = require('express');
 const {Recipe, Diet, DishType} = require('../db');
 const { getAllRecipes, getApiRecipeInf, getDbRecipeInf, getDbRecipes, addDietsTypesToDb } = require('./utils');
 const router = Router();
+const path = require('path');
+const multer = require("multer");
+
+
+const storage = multer.diskStorage({
+    destination:  function (req, file, cb) {
+        cb(null, './storage/imgs')
+      }, 
+
+    filename: ( req, file ,cb ) => {
+        cb( null , `${file.fieldname}-${Date.now()}`)
+    }
+})
+const upload = (multer({storage}).single("image"))
 
 router.get("", async (req, res, next) => {
     const {name} = req.query;
@@ -55,9 +69,15 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
+router.post("/img",upload ,async (req, res, next) => {
+    
+    console.log(req.file)
+})
 
-router.post("", async (req, res, next) => {
-    const {name, summary,healthScore, image, steps, diets, dishTypes} = req.body;
+router.post("",async (req, res, next) => {
+    const {name, summary,healthScore, image, steps, diets, dishTypes} = req;
+
+    
     try {
         if(!name || !summary || !steps )
            return res.status(400).send("Pleace, complete the form");        

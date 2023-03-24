@@ -78,7 +78,7 @@ export function getDiets (){
         var json = await axios.get(`http://localhost:3001/api/diets`);
         return dispatch( {
             type : GET_TYPE_DIETS,
-            payload: json.data
+            payload: json.data.map(diet=>{ return{ value: diet, label:diet}})
         })
 
     };
@@ -90,7 +90,7 @@ export function getDishTypes (){
         var json = await axios.get(`http://localhost:3001/api/dishTypes`);
         return dispatch( {
             type : GET_DISH_TYPES,
-            payload: json.data
+            payload: json.data.map(dishType=>{ return{ value: dishType, label:dishType}})
         })
 
     };
@@ -101,6 +101,13 @@ export function getDishTypes (){
 export function postRecipes (payload) {
     return async function(){
         try {
+
+            let formData = new FormData()
+            formData.append("image", payload.image)  
+
+            console.log(formData)
+            let img = await axios.post('http://localhost:3001/api/recipes/img', formData)
+
             var json = await axios.post('http://localhost:3001/api/recipes', payload);
             return console.log(json, alert("Recipe created succesfully ✅"))
             
