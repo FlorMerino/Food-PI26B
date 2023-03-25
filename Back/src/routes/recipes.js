@@ -4,18 +4,22 @@ const { getAllRecipes, getApiRecipeInf, getDbRecipeInf, getDbRecipes, addDietsTy
 const router = Router();
 const path = require('path');
 const multer = require("multer");
+const cloudinary = require("../configCloudinary/cloudinary");
+const { default: axios } = require('axios');
 
-
+///config multer
 const storage = multer.diskStorage({
     destination:  function (req, file, cb) {
         cb(null, './storage/imgs')
       }, 
 
     filename: ( req, file ,cb ) => {
-        cb( null , `${file.fieldname}-${Date.now()}`)
+        cb( null , `${file.originalname}-${Date.now()}`)
     }
 })
 const upload = (multer({storage}).single("image"))
+///
+
 
 router.get("", async (req, res, next) => {
     const {name} = req.query;
@@ -69,10 +73,19 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
-router.post("/img",upload ,async (req, res, next) => {
+ router.post("/img" ,async (req, res, next) => {
     
-    console.log(req.file)
-})
+    try {
+        const response = await axios.post('https://api.cloudinary.com/v1_1/dioylgf2h/image/upload',req)
+     
+        //const file = await response.json()
+        //console.log(file)
+         console.log(response)
+            
+    } catch (error) {
+        console.log('hola'+error)
+    }
+ })
 
 router.post("",async (req, res, next) => {
     const {name, summary,healthScore, image, steps, diets, dishTypes} = req;
@@ -82,6 +95,9 @@ router.post("",async (req, res, next) => {
         if(!name || !summary || !steps )
            return res.status(400).send("Pleace, complete the form");        
 
+        const response = await cloudinary.uploader.upload(image)
+
+        console.log(response)
 
         let newRecipe = await Recipe.create({
             name, summary, healthScore, image, steps
