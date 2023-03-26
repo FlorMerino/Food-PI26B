@@ -73,35 +73,24 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
- router.post("/img" ,async (req, res, next) => {
-    
+
+router.post("", upload ,async (req, res, next) => {
+    const {name, summary,healthScore, steps, diets, dishTypes} = req.body;
+    var newRecipe;
+    console.log(name)
     try {
-        const response = await axios.post('https://api.cloudinary.com/v1_1/dioylgf2h/image/upload',req)
-     
-        //const file = await response.json()
-        //console.log(file)
-         console.log(response)
-            
-    } catch (error) {
-        console.log('hola'+error)
-    }
- })
+        if(!name || !summary || !steps ) return res.status(400).send("Pleace, complete the form");        
 
-router.post("",async (req, res, next) => {
-    const {name, summary,healthScore, image, steps, diets, dishTypes} = req;
+        if(req.file){//guarda foto forma local
 
-    
-    try {
-        if(!name || !summary || !steps )
-           return res.status(400).send("Pleace, complete the form");        
-
-        const response = await cloudinary.uploader.upload(image)
-
-        console.log(response)
-
-        let newRecipe = await Recipe.create({
-            name, summary, healthScore, image, steps
+            const response = await cloudinary.uploader.upload(req.file.path)
+            let imageUrl = `${response.secure_url}`
+           console.log(imageUrl)
+           newRecipe = await Recipe.create({
+            name, summary, healthScore, imageUrl, steps
         });
+        }else return res.status(400).send("You must select a Image");
+
 
         if(diets){
           const dietDb = await Diet.findAll({
@@ -120,9 +109,6 @@ router.post("",async (req, res, next) => {
         else return res.status(400).send("You must select a type"); 
 
         res.status(201).send("New recipe created succesfully")
-        
-          
-
 
     } catch (error) {
            res.status(400).send("This recipe already exists")

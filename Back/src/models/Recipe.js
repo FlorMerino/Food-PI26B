@@ -33,10 +33,10 @@ module.exports = (sequelize) => {
       defaultValue: 0
     },
     image: {
-        //type: DataTypes.BLOB('long'),
-        //allowNull:false,
+      
+       allowNull:false,
        type: DataTypes.STRING,
-   //  defaultValue: "https://previews.123rf.com/images/vextok/vextok1608/vextok160800134/61570324-men%C3%BA-de-comida-r%C3%A1pida-conjunto-de-vectores-de-fondo-de-dibujos-animados-patatas-fritas-hamburguesas-.jpg"
+  
     },
     steps: {
       type: DataTypes.TEXT,

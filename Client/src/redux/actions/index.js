@@ -103,13 +103,23 @@ export function postRecipes (payload) {
         try {
 
             let formData = new FormData()
-            formData.append("file", payload.image)  
-            formData.append('upload_preset','food1')
-            console.log(formData)
-            let img = await axios.post('http://localhost:3001/api/recipes/img', formData)
+            formData.append("image", payload.image)
+            formData.append("name", payload.name) 
+            formData.append("healthScore", payload.healthScore) 
 
-           // var json = await axios.post('http://localhost:3001/api/recipes', payload);
-           // return console.log( alert("Recipe created succesfully ✅"))
+            for (var i = 0; i < payload.diets.length; i++) {
+                formData.append('diets[]', payload.diets[i]);
+            }
+
+            for (var i = 0; i < payload.dishTypes.length; i++) {
+                formData.append('dishTypes[]', payload.dishTypes[i]);
+            }
+           
+            formData.append("summary", payload.summary) 
+            formData.append("steps", payload.steps) 
+
+            var json = await axios.post('http://localhost:3001/api/recipes', formData);
+            return console.log(json, alert("Recipe created succesfully ✅"))
             
         } catch (error) {
             console.log(error && alert("⛔ Pleace, complete the form ⛔"))                    

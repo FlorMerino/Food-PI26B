@@ -1,7 +1,7 @@
 require('dotenv').config();
 const cloudinary = require("cloudinary").v2
 
-const cloudName = process.env.CLOUDINARY_NAME
+const cloudName = process.env.CLOUDINARY_USER_NAME
 const cloudKey = process.env.CLOUDINARY_API_KEY
 const cloudSecret = process.env.CLOUDINARY_API_SECRET
 
