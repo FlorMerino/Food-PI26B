@@ -33,9 +33,8 @@ module.exports = (sequelize) => {
       defaultValue: 0
     },
     image: {
-      
-       allowNull:false,
-       type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      allowNull:false,
   
     },
     steps: {

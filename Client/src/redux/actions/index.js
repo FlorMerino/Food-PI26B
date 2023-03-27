@@ -118,8 +118,8 @@ export function postRecipes (payload) {
             formData.append("summary", payload.summary) 
             formData.append("steps", payload.steps) 
 
-            var json = await axios.post('http://localhost:3001/api/recipes', formData);
-            return console.log(json, alert("Recipe created succesfully ✅"))
+            var response = await axios.post('http://localhost:3001/api/recipes', formData);
+            return console.log(response, alert("Recipe created succesfully ✅"))
             
         } catch (error) {
             console.log(error && alert("⛔ Pleace, complete the form ⛔"))                    

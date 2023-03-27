@@ -45,9 +45,8 @@ export default function AddRecipe() {
   }, [dispatch])
 
   const [error, setError] = useState({});
-  const [viewImage, setViewImage] = useState()
-  
-  const [img, setImg] =useState()
+  const [viewImageSelect, setViewImageSelect] = useState()
+
   const [input, setInput] = useState({
     name: '',
     summary: '',
@@ -63,18 +62,12 @@ export default function AddRecipe() {
   
 
   let handleChange = (e) => {
-    
+    console.log(e)
     if (e.target.name === 'image') {
       let url = URL.createObjectURL(e.target.files[0])
-      setViewImage(url)
-      setImg(e.target.files[0])
-      console.log(e.target.files[0])
-
-      setInput({
-        ...input,
-        [e.target.name]: e.target.files[0]
-      });
-    }else {
+      setViewImageSelect(url)
+      console.log(url)
+    }
     e.preventDefault();
     setInput({
       ...input,
@@ -87,7 +80,6 @@ export default function AddRecipe() {
       })
     );
   };
-}
 
   let handleSelectDiet = (diet) => {
     setInput({
@@ -103,7 +95,7 @@ export default function AddRecipe() {
     });
   }
 
-
+  console.log(listDiets)
   let handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postRecipes(input));
@@ -113,7 +105,7 @@ export default function AddRecipe() {
       steps: '',
       healthScore: '',
       steps: '',
-      image: undefined ,
+      img: '',
       diets: [],
       dishTypes: []
     });
@@ -170,7 +162,7 @@ export default function AddRecipe() {
             <input onChange={(e) => handleChange(e)} id="files" name="image" type="file" class="form-control" required accept=".jpg, .jpeg, .png"/>
             <div>
             {
-        viewImage && <div><img  src={viewImage} alt="Img Select" height="200px"/></div>
+        viewImageSelect && <div><img  src={viewImageSelect} alt="Img Select" height="200px"/></div>
         
       }
             </div>

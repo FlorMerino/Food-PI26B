@@ -77,17 +77,17 @@ router.get("/:id", async (req, res, next) => {
 router.post("", upload ,async (req, res, next) => {
     const {name, summary,healthScore, steps, diets, dishTypes} = req.body;
     var newRecipe;
-    console.log(name)
+
     try {
         if(!name || !summary || !steps ) return res.status(400).send("Pleace, complete the form");        
 
         if(req.file){//guarda foto forma local
 
             const response = await cloudinary.uploader.upload(req.file.path)
-            let imageUrl = `${response.secure_url}`
-           console.log(imageUrl)
+            let image = `${response.secure_url}`
+
            newRecipe = await Recipe.create({
-            name, summary, healthScore, imageUrl, steps
+            name, summary, healthScore, image, steps
         });
         }else return res.status(400).send("You must select a Image");
 
