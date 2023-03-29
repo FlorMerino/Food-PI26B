@@ -9,6 +9,8 @@
     transition: all 300ms ease;
     transform: scale(0);
 }
+
+
 .arrowUpContainer a{
  position: absolute;
  font-size: 3rem;
