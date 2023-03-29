@@ -4,33 +4,8 @@ import { Link } from "react-router-dom";
 import { getDiets, getDishTypes, postRecipes } from "../../redux/actions";
 import styles from '../createRecipe/createRecipe.module.css';
 import Select from "react-select";
-
-
-
-function validate(input) {
-  let score = parseInt(input.healthScore);
-
-  let error = {
-  };
-
-  if (!input.name) error.name = 'Title is required!';
-  if (!input.summary) error.summary = 'Please write a summary for your recipe!';
-  if (!input.steps) error.steps = 'Please write a steps for your recipe!';
-
-  if (score === 0) error.healthScore = 'Please enter the healthScore';
-  if (!input.name || input.diets.length === 0 || input.dishTypes.length === 0 || !input.summary || !input.steps || input.healthScore === 0) {
-    error.switchS = true
-  }
-
-  if (input.name && input.diets.length > 0 && input.dishTypes.length > 0 && input.summary && input.steps && input.healthScore > 0) {
-    error.switchS = false
-  }
-  if (input.diets.length === 0 || input.dishTypes.length === 0) error.dietsTypes = 'Select at least one type and one diet!';
-  if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%+.~#()?&//=]*)/.test(input.image))
-    error.image = "The image must be a valid url"
-  return error
-}
-
+import { BsFillImageFill } from "react-icons/bs";
+import Validate from "./ValidateForm";
 
 
 export default function AddRecipe() {
@@ -72,7 +47,7 @@ export default function AddRecipe() {
       [e.target.name]: e.target.value
     });
     setError(
-      validate({
+      Validate({
         ...input,
         [e.target.name]: e.target.value,
       })
@@ -101,13 +76,14 @@ export default function AddRecipe() {
       name: '',
       summary: '',
       steps: '',
-      healthScore: '',
+      healthScore: 0,
       steps: '',
       image: undefined,
       diets: [],
       dishTypes: []
     });
   }
+  console.log(input.image)
   return (
     <div className={styles.bkg}>
 
@@ -123,36 +99,37 @@ export default function AddRecipe() {
       <form className={`was-validated ${styles.containerForm}`} onSubmit={(e) => { handleSubmit(e) }}>
         <div className={styles.containerForm2} >
           <div className={`${styles.subContainer} mb-3`}>
-            <label htmlFor="validationTextarea" className="form-label">Title recipe</label>
-            <input onChange={(e) => handleChange(e)} name='name' type="text" value={input.name} className="form-control" id="validationTextarea" placeholder="Title..." required></input>
-            <div className="invalid-feedback">
-              {error.name && (
-                <div className={styles.danger}>{error.name}</div>
-              )}
-
+            <div>
+              <label htmlFor="validationTextarea" className="form-label">Title recipe</label>
+              <input onChange={(e) => handleChange(e)} name='name' type="text" value={input.name} className="form-control" id="validationTextarea" placeholder="Title..." required></input>
+               <div>
+                {
+                  (<div className={styles.danger}>{error.name}</div>)
+                }
+              </div> 
             </div>
-            {/* <div>
-            <Select isMulti options={listDiets} name='diets' className={`${styles.multiSelect} basic-multi-select`}
-              onChange={(diet) => handleSelectDiet(diet)} placeholder='Select diet'></Select>
- 
-            <Select isMulti options={listDishTypes} name='dishTypes' className={`${styles.multiSelect} basic-multi-select`}
-              onChange={handleSelectType} placeholder='Select dishType'></Select>
-           <div >
-            { error.dietsTypes && (
-                          <div className={styles.danger}>{error.dietsTypes}</div>
-                  )}
-            </div> 
-            </div> */}
 
+            <div>
+              <Select isMulti options={listDiets} name='diets' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
+                onChange={(diet) => handleSelectDiet(diet)} placeholder='Select diet'></Select>
+
+              <Select isMulti options={listDishTypes} name='dishTypes' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
+                onChange={handleSelectType} placeholder='Select dishType'></Select>
+              <div >
+                { (
+                  <div className={styles.danger}>{error.dietsTypes}</div>
+                )}
+              </div> 
+            </div>
 
             <div>
               <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
               <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
-              <div >
-                {error.healthScore && (
+               <div >
+                { (
                   <div className={styles.danger}>{error.healthScore}</div>
                 )}
-              </div>
+              </div> 
             </div>
 
             <div>
@@ -160,14 +137,18 @@ export default function AddRecipe() {
               <input onChange={(e) => handleChange(e)} id="files" name="image" type="file" className="form-control" required accept=".jpg, .jpeg, .png" />
               <div>
                 {
-                  viewImageSelect ? <div><img src={viewImageSelect} alt="Img Select" height="200px" /></div> : <div>Hola img</div>
+                  viewImageSelect ?
+                    <div><img src={viewImageSelect} alt="Img Select" height="200px" /></div>
+                    :
+                    <div className={styles.iconImage} ><BsFillImageFill></BsFillImageFill></div>
 
                 }
               </div>
-              <div className="invalid-feedback">
-
-                Example invalid form file feedback
-              </div>
+              <div>
+                {
+                   (<div className={styles.danger}>{error.image}</div>)
+                }
+              </div> 
             </div>
           </div>
 
@@ -176,7 +157,7 @@ export default function AddRecipe() {
             <label htmlFor="validationTextarea" className="form-label">Summary</label>
             <textarea onChange={(e) => handleChange(e)} name="summary" rows="5" cols="50" placeholder="Wtite a short summary:" value={input.summary} className="form-control" id="validationTextarea" required></textarea>
             <div className="invalid-feedback">
-              {error.summary && (
+              {(
                 <div className={styles.danger}>{error.summary}</div>
               )}
             </div>
@@ -184,7 +165,7 @@ export default function AddRecipe() {
             <label htmlFor="validationTextarea" className="form-label">Instructions</label>
             <textarea onChange={(e) => handleChange(e)} name="steps" rows="5" cols="50" placeholder="Step by step" value={input.steps} className="form-control" id="validationTextarea" required></textarea>
             <div className="invalid-feedback">
-              {error.steps && (
+              {(
                 <div className={styles.danger}>{error.steps}</div>
               )}
             </div>

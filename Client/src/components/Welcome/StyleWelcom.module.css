@@ -36,6 +36,10 @@
     width: 60%;
     border-radius: 100%;
     box-shadow: #bd7100e5 0 15px 40px -5px;
+    transition: transform 0.7s ease-in-out;/* para rotacion de plato*/
+  }
+  .dish:hover {
+    transform: rotate(360deg) scale(1); /* para rotacion de plato*/
   }
   /* .span2{
     grid-column: span 2;  /*PARA QUE EL SLIDE OCUPE 2 COLUMNAS UTILIZO EL SPAN
