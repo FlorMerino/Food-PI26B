@@ -111,3 +111,11 @@
 .iconImage{
     font-size: 7rem;
 }
+.image{
+    background-color: white;
+    border-radius: 2rem;
+    margin-left: 2rem;
+    height: 90%;
+    width: 80%;
+    border-style: solid;
+}

@@ -123,19 +123,9 @@ export default function AddRecipe() {
             </div>
 
             <div>
-              <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
-              <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
-               <div >
-                { (
-                  <div className={styles.danger}>{error.healthScore}</div>
-                )}
-              </div> 
-            </div>
-
-            <div>
               <label>Image {'(jpg, jpeg, png)'}:</label>
               <input onChange={(e) => handleChange(e)} id="files" name="image" type="file" className="form-control" required accept=".jpg, .jpeg, .png" />
-              <div>
+              <div className={styles.image} >
                 {
                   viewImageSelect ?
                     <div><img src={viewImageSelect} alt="Img Select" height="200px" /></div>
@@ -153,6 +143,17 @@ export default function AddRecipe() {
           </div>
 
           <div className={`${styles.text} mb-3`}>
+
+          <div>
+              <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
+              <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
+               <div >
+                { (
+                  <div className={styles.danger}>{error.healthScore}</div>
+                )}
+              </div> 
+            </div>
+
 
             <label htmlFor="validationTextarea" className="form-label">Summary</label>
             <textarea onChange={(e) => handleChange(e)} name="summary" rows="5" cols="50" placeholder="Wtite a short summary:" value={input.summary} className="form-control" id="validationTextarea" required></textarea>
