@@ -5,6 +5,7 @@ import { getDiets, getDishTypes, postRecipes } from "../../redux/actions";
 import styles from '../createRecipe/createRecipe.module.css';
 import Select from "react-select";
 import { BsFillImageFill } from "react-icons/bs";
+import {RiArrowGoBackFill} from "react-icons/ri";
 import Validate from "./ValidateForm";
 
 
@@ -83,102 +84,107 @@ export default function AddRecipe() {
       dishTypes: []
     });
   }
-  console.log(input.image)
+  
   return (
     <div className={styles.bkg}>
 
       <div className={styles.backBTN1}>
         <Link to={'/'}>
-          <button className={styles.backBTN}></button>
+          <button className={styles.backBTN}> <RiArrowGoBackFill></RiArrowGoBackFill> </button>
         </Link>
       </div>
 
-      <div>
+      <div className={styles.title}>
         <h2>Create your Recipe! </h2>
       </div>
       <form className={`was-validated ${styles.containerForm}`} onSubmit={(e) => { handleSubmit(e) }}>
-        <div className={styles.containerForm2} >
+      
+      <div className={styles.containerForm2} >
           <div className={`${styles.subContainer} mb-3`}>
             <div>
               <label htmlFor="validationTextarea" className="form-label">Title recipe</label>
               <input onChange={(e) => handleChange(e)} name='name' type="text" value={input.name} className="form-control" id="validationTextarea" placeholder="Title..." required></input>
-               <div>
-                {
-                  (<div className={styles.danger}>{error.name}</div>)
+               {
+                  (<p className={styles.danger}>{error.name}</p>)
                 }
-              </div> 
+              
             </div>
 
             <div>
+              <div className={styles.selects}>
               <Select isMulti options={listDiets} name='diets' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
-                onChange={(diet) => handleSelectDiet(diet)} placeholder='Select diet'></Select>
+                onChange={(diet) => handleSelectDiet(diet)} placeholder='Select diet'></Select>  
+              </div>
 
+              <div className={styles.selects}>
               <Select isMulti options={listDishTypes} name='dishTypes' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
                 onChange={handleSelectType} placeholder='Select dishType'></Select>
-              <div >
-                { (
-                  <div className={styles.danger}>{error.dietsTypes}</div>
+              </div>    
+                {(
+                  <p className={styles.danger}>{error.dietsTypes}</p>
                 )}
-              </div> 
+             
             </div>
 
-            <div>
+            <div className={styles.image}>
+              
               <label>Image {'(jpg, jpeg, png)'}:</label>
               <input onChange={(e) => handleChange(e)} id="files" name="image" type="file" className="form-control" required accept=".jpg, .jpeg, .png" />
-              <div className={styles.image} >
+              <div>
                 {
                   viewImageSelect ?
-                    <div><img src={viewImageSelect} alt="Img Select" height="200px" /></div>
+                    <img src={viewImageSelect} alt="Img Select" height="200px" />
                     :
-                    <div className={styles.iconImage} ><BsFillImageFill></BsFillImageFill></div>
+                    <span className={styles.iconImage} ><BsFillImageFill></BsFillImageFill></span>
 
                 }
               </div>
-              <div>
+             
                 {
-                   (<div className={styles.danger}>{error.image}</div>)
+                  (<p className={styles.danger}>{error.image}</p>)
                 }
-              </div> 
+              
             </div>
           </div>
 
           <div className={`${styles.text} mb-3`}>
 
-          <div>
+            <div>
               <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
               <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
-               <div >
-                { (
-                  <div className={styles.danger}>{error.healthScore}</div>
+                {(
+                  <p className={styles.danger}>{error.healthScore}</p>
                 )}
-              </div> 
+            
             </div>
 
-
+            <div>
             <label htmlFor="validationTextarea" className="form-label">Summary</label>
-            <textarea onChange={(e) => handleChange(e)} name="summary" rows="5" cols="50" placeholder="Wtite a short summary:" value={input.summary} className="form-control" id="validationTextarea" required></textarea>
-            <div className="invalid-feedback">
+            <textarea onChange={(e) => handleChange(e)} name="summary" rows="5" cols="50" placeholder="Wtite a short summary:" value={input.summary} className="form-control" id="validationTextarea" required></textarea>     
               {(
-                <div className={styles.danger}>{error.summary}</div>
+                <p className={styles.danger}>{error.summary}</p>
               )}
+          
             </div>
-
-            <label htmlFor="validationTextarea" className="form-label">Instructions</label>
+      
+             <div>
+             <label htmlFor="validationTextarea" className="form-label">Instructions</label>
             <textarea onChange={(e) => handleChange(e)} name="steps" rows="5" cols="50" placeholder="Step by step" value={input.steps} className="form-control" id="validationTextarea" required></textarea>
-            <div className="invalid-feedback">
               {(
-                <div className={styles.danger}>{error.steps}</div>
+                <p className={styles.danger}>{error.steps}</p>
               )}
-            </div>
+             </div>
 
           </div>
 
         </div>
 
 
-        <div className="mb-3">
+        <div className={`${styles.btnSubmit} mb-3`}>
           <button className="btn btn-primary" type="submit" disabled={error.switchS} >Submit form</button>
         </div>
+    
+       
       </form>
     </div>
   )
