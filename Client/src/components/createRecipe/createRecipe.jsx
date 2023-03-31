@@ -6,6 +6,7 @@ import styles from '../createRecipe/createRecipe.module.css';
 import Select from "react-select";
 import { BsFillImageFill } from "react-icons/bs";
 import {RiArrowGoBackFill} from "react-icons/ri";
+import {TbArrowBigLeftFilled} from "react-icons/tb";
 import Validate from "./ValidateForm";
 
 
@@ -20,7 +21,7 @@ export default function AddRecipe() {
     dispatch(getDishTypes());
   }, [dispatch])
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState({switchS: true});
   const [viewImageSelect, setViewImageSelect] = useState(undefined)
 
   const [input, setInput] = useState({
@@ -84,13 +85,14 @@ export default function AddRecipe() {
       dishTypes: []
     });
   }
-  
+  console.log(input)
+  console.log(error.switchS)
   return (
     <div className={styles.bkg}>
 
       <div className={styles.backBTN1}>
         <Link to={'/'}>
-          <button className={styles.backBTN}> <RiArrowGoBackFill></RiArrowGoBackFill> </button>
+          {/* <button className={styles.backBTN}> <TbArrowBigLeftFilled>  </TbArrowBigLeftFilled> </button> */}
         </Link>
       </div>
 
@@ -149,14 +151,14 @@ export default function AddRecipe() {
 
           <div className={`${styles.text} mb-3`}>
 
-            <div>
+          
               <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
               <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
                 {(
                   <p className={styles.danger}>{error.healthScore}</p>
                 )}
             
-            </div>
+           
 
             <div>
             <label htmlFor="validationTextarea" className="form-label">Summary</label>
