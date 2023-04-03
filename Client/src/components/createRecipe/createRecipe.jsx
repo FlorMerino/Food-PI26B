@@ -5,8 +5,7 @@ import { getDiets, getDishTypes, postRecipes } from "../../redux/actions";
 import styles from '../createRecipe/createRecipe.module.css';
 import Select from "react-select";
 import { BsFillImageFill } from "react-icons/bs";
-import {RiArrowGoBackFill} from "react-icons/ri";
-import {TbArrowBigLeftFilled} from "react-icons/tb";
+import {RxDoubleArrowLeft} from "react-icons/rx";
 import Validate from "./ValidateForm";
 
 
@@ -70,7 +69,6 @@ export default function AddRecipe() {
     });
   }
 
-  console.log(listDiets)
   let handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postRecipes(input));
@@ -85,14 +83,13 @@ export default function AddRecipe() {
       dishTypes: []
     });
   }
-  console.log(input)
-  console.log(error.switchS)
+
   return (
     <div className={styles.bkg}>
-
-      <div className={styles.backBTN1}>
-        <Link to={'/'}>
-          {/* <button className={styles.backBTN}> <TbArrowBigLeftFilled>  </TbArrowBigLeftFilled> </button> */}
+ <div className={styles.bkg2}>
+ <div className={styles.backBTN1}>
+        <Link to={'/'} className={styles.backBTN1} >
+         <button ><RxDoubleArrowLeft></RxDoubleArrowLeft> </button> 
         </Link>
       </div>
 
@@ -103,6 +100,7 @@ export default function AddRecipe() {
       
       <div className={styles.containerForm2} >
           <div className={`${styles.subContainer} mb-3`}>
+    
             <div>
               <label htmlFor="validationTextarea" className="form-label">Title recipe</label>
               <input onChange={(e) => handleChange(e)} name='name' type="text" value={input.name} className="form-control" id="validationTextarea" placeholder="Title..." required></input>
@@ -153,7 +151,7 @@ export default function AddRecipe() {
 
           
               <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
-              <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className="form-range" id="customRange1" min="0" max="100" step="10" name="healthScore" />
+              <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className={`${styles.range} form-range`} id="customRange1" min="0" max="100" step="10" name="healthScore" />
                 {(
                   <p className={styles.danger}>{error.healthScore}</p>
                 )}
@@ -183,11 +181,13 @@ export default function AddRecipe() {
 
 
         <div className={`${styles.btnSubmit} mb-3`}>
-          <button className="btn btn-primary" type="submit" disabled={error.switchS} >Submit form</button>
+          <button className={`btn btn-primary ${styles.btn}`} type="submit" disabled={error.switchS} >Submit form</button>
         </div>
     
        
       </form>
+ </div>
+      
     </div>
   )
 

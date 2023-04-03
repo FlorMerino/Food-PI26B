@@ -6,6 +6,7 @@ import Recipe from "../recipe/recipe";
 import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
 import ArrowUpBTN from "../ArrowUp/BTNArrowUp";
+import {TbArrowBigLeftFilled, TbArrowBigRightFilled} from "react-icons/tb";
 
 
 export default function Recipes() {
@@ -79,12 +80,12 @@ export default function Recipes() {
         }
          
      
-       <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}></button>
-       <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}></button>
+       <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}> <TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
+       <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}> <TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
 
        <div className={styles.visibilityBTN} >
-       <button className={styles.prev} onClick={previusPage} disabled={page === 1}></button>
-       <button className={styles.next} onClick={nextPage} disabled={page === max}></button>
+       <button className={styles.prev} onClick={previusPage} disabled={page === 1}><TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
+       <button className={styles.next} onClick={nextPage} disabled={page === max}><TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
        </div>
       
       </div>

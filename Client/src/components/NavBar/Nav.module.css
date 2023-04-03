@@ -3,7 +3,7 @@
 } */
 
 .navStyle{
-    background-color:rgba(126, 83, 44, 0.7) !important;
+    background-color:rgb(224 99 0 / 81%) !important;
     position: fixed;
     z-index: 1;
     width: 100%;

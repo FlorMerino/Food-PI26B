@@ -24,13 +24,13 @@
 .container h5{
   margin-top: 5rem;
 }
-.title{
+/* .title{
     font-size: 7vw;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:rgb(255, 42, 42) ;  
     position: absolute;
     justify-items: center;
-}
+} */
   
   .dish{
     width: 60%;

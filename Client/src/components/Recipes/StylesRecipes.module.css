@@ -126,9 +126,7 @@
 .prev,
 .nextBTN,
 .next{
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
+    font-size: 3rem;
     width: 50px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0);
@@ -142,7 +140,7 @@
     grid-column: 1 / 2;
     grid-row: 1 / -1;
 
-    background-image: url('../../icons/izq-removebg-preview.png');
+   
     margin-left: 3rem;
 }
 
@@ -153,7 +151,6 @@
     grid-column: auto / -1;  /*Donde empieza y donde termina start - end*/
     grid-row: 1 / -1;
 
-    background-image: url('../../icons/der-removebg-preview.png');
     margin-right: 3rem;
 }
 .nextBTN:hover,

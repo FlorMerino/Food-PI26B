@@ -1,26 +1,29 @@
 :root {
-    --danger:  #dc3545;
+    --danger: #dc3545;
 
 }
+
 .bkg,
 .containerForm,
 .subContainer,
-.text{
+.text {
     display: flex;
     flex-direction: column;
 }
-.bkg{
-    background-image: url('../../icons/fondo\ create.png'); 
+
+.bkg {
+    background-image: url('../../icons/fondo\ create.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment:fixed;
+    background-attachment: fixed;
     background-position: center;
     min-height: 100vh;
-    height:100%;
+    height: 100%;
     min-width: 90vw;
     width: 100%;
 }
-.bkg2{
+
+.bkg2 {
     background-color: rgba(238, 208, 157, 0.15);
     backdrop-filter: blur(3px);
     padding-bottom: 40px;
@@ -29,93 +32,143 @@
 
 
 .subContainer,
-.text{
+.text {
     align-items: center;
     justify-content: space-between;
-    
+
 }
+
 .containerForm2,
 .diets,
 .backBTN1,
-.image div{
+.image div {
     display: flex;
 }
-.containerForm2{
+
+.containerForm2 {
     flex-direction: row;
     justify-content: space-evenly;
-    height: 80vh; 
 }
-@media (mix-width: 768px) {
 
-    .containerForm2{
+@media (max-width: 768px) {
+    .containerForm2 {
+        display: flex;
         flex-direction: column;
-        height: 0vh;
     }
 
+    .text {
+        margin-top: 5rem;
+    }
+
+    .btnSubmit {
+        margin-top: 5rem !important;
+    }
+}
+
+.range {
+    width: 70%;
 }
 
 .multiSelect,
-.multiSelectError{
+.multiSelectError {
     width: 21rem;
 }
-.multiSelectError div{
+
+.multiSelectError div {
     border-color: var(--danger);
 }
-.text textarea{
-    height:10rem ;
-    width: 19rem;
+
+.text textarea {
+    height: 12rem;
+    width: 90%;
 }
 
-.diets{
+.diets {
     align-items: flex-start;
 }
 
-.backBTN1{
+.backBTN1 {
     justify-content: flex-start;
     padding-top: 20px;
     padding-left: 20px;
+    font-size: 3rem;
+    
+
 }
 
+.backBTN1 button {
+    display: flex;
+    border-color: tan;
+    color: tomato;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5)
 
-.backBTN:hover{
+}
+
+.backBTN1 button:hover {
+    color: tan;
     cursor: pointer;
     transform: scale(1.06);
     transition: all 0.5s;
 
 }
 
-.danger{
-    display:inline;
+.btn {
+    border-color: tan;
+    background-color: tomato;
+}
+
+.btn:disabled {
+    border-color: tan;
+    background-color: tomato;
+}
+
+.btn:hover {
+    border-color: tomato;
+    background-color: tan;
+}
+
+.danger {
+    display: inline;
     color: var(--danger);
     font-size: 14px;
     padding: 2px;
     margin: 2px;
 }
 
-.iconImage{
+.iconImage {
     font-size: 7rem;
 }
-.image div{
+
+.image div {
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 2rem;
     margin-left: 2rem;
-    height: 90%;
+    height: 80%;
     width: 80%;
     border-style: solid;
 }
-.image{
+.image img{
+    width: 80%;
+    height: 90%;
+}
+.image {
     margin-top: 1rem;
 }
-.image label, input,
+
+.image label,
+input,
 .selects,
-.text textarea{
+.text textarea {
     margin-bottom: 1rem;
 }
-.title{
+
+.title {
     margin-bottom: 2.5rem;
 }
-.btnSubmit{
+
+.btnSubmit {
     margin-top: 10rem;
 }

@@ -32,7 +32,6 @@ export default function Welcome() {
                 </section>
 
                 <section >
-                    <h1 className={styles.title}>What are we going to eat?</h1>
                     <img className={styles.dish} src="../imgs/plato-sin-fondo1.gif" alt="dish" />
                 </section>
             </div>
