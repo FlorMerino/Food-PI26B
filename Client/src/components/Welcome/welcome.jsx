@@ -10,10 +10,10 @@ export default function Welcome() {
                     <div id="carouselExampleAutoplaying" class={`carousel slide ${styles.carousel}`} data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="../imgs/DIETA_MEDITERRANEA_ITALIA.JPG" class="d-block w-100" alt="..." /> {/*las imagenes deben estar guardadas en public siempre y cuando sea img estaticas*/}
+                                <img src="../imgs/bhoomis.png" class="d-block w-100" alt="..." /> {/*las imagenes deben estar guardadas en public siempre y cuando sea img estaticas*/}
                             </div>
                             <div class="carousel-item">
-                                <img src="https://cdn.hsnstore.com/blog/wp-content/uploads/2018/10/tipos-de-dietas.jpg" class="d-block w-100" alt="..." />
+                                <img src="../imgs/veg.png" class="d-block w-100" alt="..." />
                             </div>
                             <div class="carousel-item">
                                 <img src="https://www.telam.com.ar/thumbs/bluesteel/advf/imagenes/2022/04/625ee284e0735_1200.jpg" class="d-block w-100" alt="..." />
