@@ -1,5 +1,5 @@
 .bkg{
-    background-image: url('../../icons/detail2.jpg'); 
+    background-image: url('../../icons/detail1.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -76,13 +76,13 @@
 }
 
 .img{
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
     border-radius: 90% 10% 81% 19% / 19% 85% 15% 81% ;
     box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.55);
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
     border: solid rgba(197, 197, 197, 0.5);
-    margin-top: 30px;
+    margin-top: 3rem;
     
 }
 

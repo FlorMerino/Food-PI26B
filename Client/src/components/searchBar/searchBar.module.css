@@ -1,5 +1,6 @@
 .conteinerSearch{
  width: 60%;
  margin-top: 1rem;
+ align-items: flex-start;
 }
 

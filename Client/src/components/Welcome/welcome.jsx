@@ -7,9 +7,9 @@ export default function Welcome() {
     return (
         <div className={styles.container}>
 
-            <section >
+            <section className={styles.section1}>
                 <img className={styles.dish} src="../imgs/platoBh.png" alt="dish" />
-                  <h1>Of recipes and diets!</h1>
+                <h1>Of recipes and diets!</h1>
                 <h5>Find the best recipes according to your diet, and if you can't find it, create and publish your own recipe!</h5>
 
             </section>
@@ -36,7 +36,7 @@ export default function Welcome() {
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <p>Click on the image and get information about the different diets☝</p>
+                <p className={styles.footerSlide}>Click on the image and get information about the different diets☝</p>
             </section>
 
 
