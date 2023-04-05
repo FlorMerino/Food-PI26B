@@ -6,7 +6,7 @@
     height: 80vh;
     place-items: center;
 
-    background-image: url('../../icons/eggs-and-spoon-on-napkin.jpg');
+    background-image: url('../../icons/verdurasBlanco.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:scroll;
@@ -33,7 +33,7 @@
 } */
   
   .dish{
-    width: 60%;
+    width: 40%;
     border-radius: 100%;
     box-shadow: #bd7100e5 0 15px 40px -5px;
     transition: transform 0.7s ease-in-out;/* para rotacion de plato*/
@@ -46,5 +46,5 @@
     width: 65%;
   } */
   .carousel{
-    width: 65%;
+    width: 85%;
   }

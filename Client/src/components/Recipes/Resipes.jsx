@@ -40,13 +40,13 @@ export default function Recipes() {
          <h1>
            <ul>
              <li className={styles.item}>
-              Explora +100 recetas!
+             Explore more than +50 recipes!
              </li>
              <li className={styles.item}>
-               Busca tu dieta y descubre recetas
+             Select your diet and discover recipes
              </li>
              <li className={styles.item}>
-               Los platos del mundo a tu mesa
+             Find the favorite dish for your occasion
              </li>
            </ul>
          </h1>
