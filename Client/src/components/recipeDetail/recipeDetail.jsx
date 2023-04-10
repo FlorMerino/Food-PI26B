@@ -27,7 +27,9 @@ export default function Recipe() {
 
   return (
     <div className={styles.bkg}>
-      <div className={stylesB.backBTN1}>
+        <div className={styles.bkg1} >
+
+        <div className={stylesB.backBTN1}>
         <Link to={'/'}>
           <button ><RxDoubleArrowLeft></RxDoubleArrowLeft> </button>
         </Link>
@@ -44,7 +46,7 @@ export default function Recipe() {
                 <div>Health Score: {recipe.healthScore}</div>
                 <h5 className={styles.subtitle}>Type of Diet</h5>
                 {recipe.diets.length ?
-                  <ul className={styles.dietsTypes}>{recipe.diets.map(d => <li>{d}</li>)}</ul> :
+                  <ul className={styles.dietsTypes}>{recipe.diets.map(d => <li><p>{d}</p></li>)}</ul> :
                   <span>No type of diets specified</span>
                 }
                 <h5 className={styles.subtitle}>Type of Dish</h5>
@@ -70,5 +72,9 @@ export default function Recipe() {
             <Loading />
           </div>
       }
+        </div>
+
+
+      
     </div>)
 }

@@ -1,13 +1,23 @@
+
+.bkg,
+.bkg1{
+    min-height: 100vh;
+    height:100%;
+    min-width: 90vw;
+    width: 100%;
+}
+
 .bkg{
     background-image: url('../../icons/detail1.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-position: center;
-    min-height: 100vh;
-    height:100%;
-    min-width: 90vw;
-    width: 100%;
+}   
+
+.bkg1{
+    background-color:rgb(125 125 125 / 12%);
+    backdrop-filter: blur(1px);
 }
 
 .containerDetail,
@@ -28,10 +38,11 @@
 
 .title{
     display: inline-block;
-    margin-bottom: 3rem;
+    margin:1rem 1rem 3rem 1rem;
     font-weight: 700;
     font-size: 25px;
-    text-shadow: black 0.1em 0.1em 0.2em;
+    text-shadow: rgb(255, 255, 255) 0.1em 0.1em 0.2em;
+
 }
 
 .diseño{
@@ -76,20 +87,18 @@
 }
 
 .img{
-    height: 80%;
-    width: 80%;
     border-radius: 90% 10% 81% 19% / 19% 85% 15% 81% ;
     box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.55);
-    margin-bottom: 3rem;
+    margin-bottom: 30px;
     border: solid rgba(197, 197, 197, 0.5);
-    margin-top: 3rem;
+    margin-top: 30px;
     
 }
 
 .dietsTypes{
     align-items: flex-start;
     flex-direction: column;
-    padding-left: 100px;
+
     margin-top: 0;
     list-style-type: square;
 }

@@ -83,7 +83,7 @@ export default function AddRecipe() {
       dishTypes: []
     });
   }
-
+ console.log(input)
   return (
     <div className={styles.bkg}>
  <div className={styles.bkg2}>

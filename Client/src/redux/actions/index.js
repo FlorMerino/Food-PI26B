@@ -37,7 +37,7 @@ export function searchRecipes(search) {
             });
         })
         .catch((error) => {
-            console.log(error && alert(`⚠️ There are no recipes with ${search} ⚠️`))
+            console.log(error && alert(`⚠️ There are no recipes with the name ${search} ⚠️`))
         })
         
     };
@@ -117,12 +117,13 @@ export function postRecipes (payload) {
            
             formData.append("summary", payload.summary) 
             formData.append("steps", payload.steps) 
-
+         
             var response = await axios.post('http://localhost:3001/api/recipes', formData);
             return console.log(response, alert("Recipe created succesfully ✅"))
             
         } catch (error) {
-            console.log(error && alert("⛔ Pleace, complete the form ⛔"))                    
+            console.log(error)
+            alert(`⛔${error.response.data}⛔`)                    
         }
     };
 };

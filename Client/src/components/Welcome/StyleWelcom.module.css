@@ -15,6 +15,31 @@
     min-width: 100vw;
     width: 100%; 
 }
+@media (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    place-items:inherit;
+    padding-bottom: 20%;
+  }
+  .carousel{
+    margin-top: 4rem;
+    width: 65% !important;
+  }
+  .section1 p{
+    margin-top: 2rem !important;   
+  }
+  .section1{
+    margin-top: 20%;
+  }
+  .dish{
+    width: 70%;
+  }
+}
+.imgTittle{
+  display: flex;
+  flex-direction: column;
+}
 .container section{
   display: flex;
   flex-direction: column;
@@ -22,13 +47,6 @@
     justify-content: center;
 }
 
-/* .title{
-    font-size: 7vw;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color:rgb(255, 42, 42) ;  
-    position: absolute;
-    justify-items: center;
-} */
   
   .dish{
     width: 40%;
@@ -39,10 +57,13 @@
   .section1 h1{
     margin-top: 2rem;
   }
-  .section1 h5{
+  .section1 p{
     margin-top: 4rem;
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+  section p{
+    text-shadow: rgb(255, 255, 255) 0.1em 0.1em 0.2em;
   }
   .dish:hover {
     transform: rotate(360deg) scale(1); /* para rotacion de plato*/

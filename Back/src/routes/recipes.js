@@ -77,7 +77,8 @@ router.get("/:id", async (req, res, next) => {
 router.post("", upload ,async (req, res, next) => {
     const {name, summary,healthScore, steps, diets, dishTypes} = req.body;
     var newRecipe;
-
+     console.log(req.body)
+     console.log(req.file)
     try {
         if(!name || !summary || !steps ) return res.status(400).send("Pleace, complete the form");        
 

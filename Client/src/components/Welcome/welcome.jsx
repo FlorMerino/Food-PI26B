@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "../Welcome/StyleWelcom.module.css";
+import "../Welcome/styleTittle.css";
 
 
 export default function Welcome() {
@@ -8,9 +9,44 @@ export default function Welcome() {
         <div className={styles.container}>
 
             <section className={styles.section1}>
-                <img className={styles.dish} src="../imgs/platoBh.png" alt="dish" />
-                <h1>Of recipes and diets!</h1>
-                <h5>Find the best recipes according to your diet, and if you can't find it, create and publish your own recipe!</h5>
+                <div className={styles.imgTittle} >
+                <a href="#recipes"><img className={styles.dish} src="../imgs/logoRecipes2.jpg" alt="logoRecipes" /></a>
+                
+                <div className="shadow_letters">
+                    <div>
+                    <span className="--shadow:1">O</span>
+                    <span className="--shadow:2">f</span>
+                    </div>
+                    <div>
+                    <span className="--shadow:3">r</span>
+                    <span  className="--shadow:4">e</span>
+                    <span  className="--shadow:6">c</span>
+                    <span  className="--shadow:7">i</span>
+                    <span  className="--shadow:8">p</span>
+                    <span  className="--shadow:9">e</span>
+                    <span  className="--shadow:10">s</span>
+                    </div>
+                   
+                   <div>
+                   <span  className="--shadow:11">a</span>
+                    <span  className="--shadow:12">n</span>
+                    <span  className="--shadow:13">d</span>
+                   </div>
+                   <div>
+                   <span  className="--shadow:14">d</span>
+                    <span  className="--shadow:15">i</span>
+                    <span  className="--shadow:16">e</span>
+                    <span  className="--shadow:17">t</span>
+                    <span  className="--shadow:18">s</span>
+                    <span  className="--shadow:19">!</span>
+                   </div>
+                   
+
+                </div>
+                
+                </div>
+                
+                <p>Find the best recipes according to your diet, and if you can't find it, create and publish your own recipe!</p>
 
             </section>
             <section>

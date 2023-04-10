@@ -3,7 +3,7 @@
 } */
 
 .navStyle{
-    background-color:rgb(224 99 0 / 81%) !important;
+    background-color:#e06939d9 !important;
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -18,4 +18,15 @@
 }
 a{
     text-decoration: none;
+}
+.logo{
+    display: contents;
+}
+.logo img{
+    width: 3%;
+}
+@media (max-width: 768px) {
+    .logo img{
+        width: 10%;
+    }
 }

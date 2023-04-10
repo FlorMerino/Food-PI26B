@@ -78,20 +78,29 @@ export default function Recipes() {
             </span>
 
         }
-         
-     
-       <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}> <TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
-       <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}> <TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
 
-       <div className={styles.visibilityBTN} >
-       <button className={styles.prev} onClick={previusPage} disabled={page === 1}><TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
-       <button className={styles.next} onClick={nextPage} disabled={page === max}><TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
-       </div>
+                    
+          <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}> <TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
+
+          <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}> <TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
+         {
+          recipes.length ?
+
+          <div className={styles.nextAndPrevBTN} >
+          <button className={styles.prev} onClick={previusPage} disabled={page === 1}><TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
+          <button className={styles.next} onClick={nextPage} disabled={page === max}><TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
+          </div>      
+          :
+          <span></span>
+        }
+     
+       
       
       </div>
       
       <ArrowUpBTN></ArrowUpBTN>
-
+    
+   
     </div>
 
   )
