@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchRecipes } from "../../redux/actions";
 import { getDiets, getDishTypes, postRecipes } from "../../redux/actions";
 import styles from '../createRecipe/createRecipe.module.css';
 import Select from "react-select";
@@ -16,6 +17,7 @@ export default function AddRecipe() {
   let listDishTypes = useSelector((state) => state.dishTypes)
 
   useEffect(() => {
+    dispatch(fetchRecipes())
     dispatch(getDiets());
     dispatch(getDishTypes());
   }, [dispatch])
@@ -29,30 +31,41 @@ export default function AddRecipe() {
     steps: '',
     healthScore: 0,
     steps: '',
-    image: undefined,
+    image: null,
     diets: [],
     dishTypes: []
   });
 
   let handleChange = (e) => {
-
+    
     if (e.target.name === 'image') {
       e.preventDefault();
       let url = URL.createObjectURL(e.target.files[0])
       setViewImageSelect(url)
-
-    }
-    e.preventDefault();
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    });
-    setError(
-      Validate({
+      setInput({
         ...input,
-        [e.target.name]: e.target.value,
-      })
-    );
+        [e.target.name]: e.target.files[0]
+      });
+      setError(
+        Validate({
+          ...input,
+          [e.target.name]: e.target.value,
+        })
+      );
+    }else{
+      e.preventDefault();
+      setInput({
+        ...input,
+        [e.target.name]: e.target.value
+      });
+      setError(
+        Validate({
+          ...input,
+          [e.target.name]: e.target.value,
+        })
+      );
+    }
+
   };
 
   let handleSelectDiet = (diet) => {
@@ -78,7 +91,7 @@ export default function AddRecipe() {
       steps: '',
       healthScore: 0,
       steps: '',
-      image: undefined,
+      image: null,
       diets: [],
       dishTypes: []
     });
@@ -128,7 +141,9 @@ export default function AddRecipe() {
 
             <div className={styles.image}>
               
-              <label>Image {'(jpg, jpeg, png)'}:</label>
+              <label>
+                Image {'(jpg, jpeg, png)'}:             
+              </label>
               <input onChange={(e) => handleChange(e)} id="files" name="image" type="file" className="form-control" required accept=".jpg, .jpeg, .png" />
               <div>
                 {

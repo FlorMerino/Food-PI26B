@@ -10,14 +10,14 @@ const { default: axios } = require('axios');
 ///config multer
 const storage = multer.diskStorage({
     destination:  function (req, file, cb) {
-        cb(null, './storage/imgs')
+        cb(null, './storageImg')
       }, 
 
     filename: ( req, file ,cb ) => {
         cb( null , `${file.originalname}-${Date.now()}`)
     }
 })
-const upload = (multer({storage}).single("image"))
+const upload = (multer({storage: storage}).single("image"))
 ///
 
 
@@ -77,8 +77,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("", upload ,async (req, res, next) => {
     const {name, summary,healthScore, steps, diets, dishTypes} = req.body;
     var newRecipe;
-     console.log(req.body)
-     console.log(req.file)
+
     try {
         if(!name || !summary || !steps ) return res.status(400).send("Pleace, complete the form");        
 
@@ -90,7 +89,7 @@ router.post("", upload ,async (req, res, next) => {
            newRecipe = await Recipe.create({
             name, summary, healthScore, image, steps
         });
-        }else return res.status(400).send("You must select a Image");
+        }else return res.status(400).send("Error loading image");
 
 
         if(diets){
