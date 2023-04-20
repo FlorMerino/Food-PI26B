@@ -40,6 +40,7 @@ export default function AddRecipe() {
     
     if (e.target.name === 'image') {
       e.preventDefault();
+      console.log(e)
       let url = URL.createObjectURL(e.target.files[0])
       setViewImageSelect(url)
       setInput({
@@ -69,17 +70,31 @@ export default function AddRecipe() {
   };
 
   let handleSelectDiet = (diet) => {
+    let arrayDiets= diet.map(e => e.value);
     setInput({
       ...input,
-      ['diets']: diet.map(e => e.value)
+      ['diets']: arrayDiets
     });
+    setError(
+      Validate({
+        ...input,
+        ['diets']: arrayDiets,
+      })
+    );
   }
 
   let handleSelectType = (type) => {
+    let arrayTypes= type.map(e => e.value)
     setInput({
       ...input,
-      ['dishTypes']: type.map(e => e.value),
+      ['dishTypes']: arrayTypes,
     });
+    setError(
+      Validate({
+        ...input,
+        ['dishTypes']: arrayTypes,
+      })
+    );
   }
 
   let handleSubmit = (e) => {
@@ -96,6 +111,7 @@ export default function AddRecipe() {
       dishTypes: []
     });
   }
+  const [selectedOption, setSelectedOption] = useState('soy una opcion');
  console.log(input)
   return (
     <div className={styles.bkg}>
@@ -130,7 +146,7 @@ export default function AddRecipe() {
               </div>
 
               <div className={styles.selects}>
-              <Select isMulti options={listDishTypes} name='dishTypes' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
+              <Select defaultValue={selectedOption} isMulti options={listDishTypes} name='dishTypes' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
                 onChange={handleSelectType} placeholder='Select dishType'></Select>
               </div>    
                 {(

@@ -9,7 +9,7 @@ export default function Recipe({ id, name, image, diets }) {
     return (
         <div class={`card ${styles.size}`} >
             <Link to={`recipes/${id}`}>
-                <img src={image} class="card-img-top" alt="..." />
+                <img src={image} class={`card-img-top ${styles.image}`} alt="..." />
             </Link>
             <div class={`card-body ${styles.containerBody}`}>
                 <h5 class="card-title">{name}</h5>

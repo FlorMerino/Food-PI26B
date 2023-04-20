@@ -2,7 +2,7 @@
 
 
 const Validate = (input) => {
-
+console.log(input)
     let score = parseInt(input.healthScore);
 
     let error = {
@@ -13,11 +13,11 @@ const Validate = (input) => {
     if (!input.steps) error.steps = 'Please write a steps for your recipe!';
 
     if (score === 0) error.healthScore = 'Please enter the healthScore';
-    if (!input.name || input.diets.length === 0 || input.dishTypes.length === 0 || !input.summary || !input.steps || input.healthScore === 0) {
+    if (!input.name || input.diets.length === 0 || input.dishTypes.length === 0 || !input.summary || !input.steps || input.healthScore === 0 || !input.image) {
         error.switchS = true
     }
 
-    if (input.name && input.diets.length > 0 && input.dishTypes.length > 0 && input.summary && input.steps && input.healthScore > 0) {
+    if (input.name && input.diets.length > 0 && input.dishTypes.length > 0 && input.summary && input.steps && input.healthScore > 0 && input.image) {
         error.switchS = false
     }
     if (input.diets.length === 0 || input.dishTypes.length === 0) error.dietsTypes = 'Select at least one type and one diet!';
