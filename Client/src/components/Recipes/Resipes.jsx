@@ -7,7 +7,7 @@ import Loading from "../loading/loading";
 import NavRecipes from "../NavRecipes/NavRecipes";
 import ArrowUpBTN from "../ArrowUp/BTNArrowUp";
 import {TbArrowBigLeftFilled, TbArrowBigRightFilled} from "react-icons/tb";
-
+import Pagination from "../pagination/pagination";
 
 export default function Recipes() {
   const recipes = useSelector((state) => state.filteredRecipes)
@@ -78,29 +78,17 @@ export default function Recipes() {
             </span>
 
         }
-
-                    
-          <button className={recipes.length ? styles.prevBTN :styles.visibilityBTN } onClick={previusPage} disabled={page === 1}> <TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
-
-          <button className={recipes.length ? styles.nextBTN :styles.visibilityBTN} onClick={nextPage} disabled={page === max}> <TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
-         {
-          recipes.length ?
-
-          <div className={styles.nextAndPrevBTN} >
-          <button className={styles.prev} onClick={previusPage} disabled={page === 1}><TbArrowBigLeftFilled></TbArrowBigLeftFilled> </button>
-          <button className={styles.next} onClick={nextPage} disabled={page === max}><TbArrowBigRightFilled></TbArrowBigRightFilled> </button>
-          </div>      
-          :
-          <span></span>
-        }
-     
-       
+  
       
       </div>
       
       <ArrowUpBTN></ArrowUpBTN>
-    
-   
+    {
+      recipes.length > 0 ?
+      <Pagination page={page} setPage={setPage} max={max} ></Pagination> :
+      <span></span>
+    }
+     
     </div>
 
   )
