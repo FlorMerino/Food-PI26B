@@ -3,7 +3,7 @@
 } */
 
 .navStyle{
-    background-color:#e06939d9 !important;
+    background:-webkit-linear-gradient(left, rgb(250, 125, 47) 0%, rgb(250, 125, 47) 50%, rgb(240, 88, 0) 100%) !important;
     position: fixed;
     z-index: 1;
     width: 100%;

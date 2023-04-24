@@ -1,6 +1,7 @@
 .navRcp{
-    background-color:#EABAA0;
-   
+   background-color:#cb6e3b; 
+
+
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -30,6 +31,7 @@
     }
 }
 .navSelect{
+    margin-top: 0.5rem;
     justify-content: space-evenly !important;
 }
 .navSelect select{

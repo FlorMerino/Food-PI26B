@@ -22,15 +22,15 @@
  flex-direction: row;
 }
 .btn{
-    background-color: tomato;
+    background-color: rgb(240, 88, 0);
     border-color: tan;
     margin-top: auto;
 }
 .btn:hover{
-    border-color: tomato;
+    border-color: tomat rgb(240, 88, 0);
     background-color: tan;
 }
 .image{
-    width: 255px;
+    width: 254px;
     height: 189px;
 }

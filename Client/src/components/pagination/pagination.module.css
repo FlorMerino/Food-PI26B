@@ -14,17 +14,19 @@
     font-family: cursive;
     font-size: 22px;
     border-radius: 4px;
-    background-color: rgb(114, 248, 185);
-    padding: 4px 4px;
-    border-color: rgb(0, 0, 0) ;
+    background-color: rgb(240, 88, 0);
+    padding: 4px 5px;
+    border-color: rgb(0, 0, 0) important! ;
     border-style:none;
     cursor: pointer;
     margin: 20px;
+    color: white;
 }
+
 .notButton{
     color: darkgray;
 }
 
-.page li:hover{
+.pag li:hover{
     cursor: pointer;
 }

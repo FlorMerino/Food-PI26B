@@ -14,10 +14,10 @@
     align-items: center;
 }
 .containerAllSection{
-    background-image: url('../../icons/allRecipes1.jpg');
+    background-image: url('../../icons/maderaBlanca2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment:fixed;
+    background-attachment:scroll;
     background-position: center;
     min-height: 100vh;
     height:100%;

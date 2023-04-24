@@ -123,7 +123,7 @@ export default function AddRecipe() {
       </div>
 
       <div className={styles.title}>
-        <h2>Create your Recipe! </h2>
+        <h1>Create your Recipe! </h1>
       </div>
       <form className={`was-validated ${styles.containerForm}`} onSubmit={(e) => { handleSubmit(e) }}>
       
@@ -133,8 +133,10 @@ export default function AddRecipe() {
             <div>
               <label htmlFor="validationTextarea" className="form-label">Title recipe</label>
               <input onChange={(e) => handleChange(e)} name='name' type="text" value={input.name} className="form-control" id="validationTextarea" placeholder="Title..." required></input>
-               {
+               {error.name?
                   (<p className={styles.danger}>{error.name}</p>)
+                  :
+                  <span></span>
                 }
               
             </div>
@@ -149,9 +151,12 @@ export default function AddRecipe() {
               <Select defaultValue={selectedOption} isMulti options={listDishTypes} name='dishTypes' className={error.dietsTypes ? `${styles.multiSelectError} basic-multi-select` : `${styles.multiSelect} basic-multi-select`}
                 onChange={handleSelectType} placeholder='Select dishType'></Select>
               </div>    
-                {(
-                  <p className={styles.danger}>{error.dietsTypes}</p>
-                )}
+                {
+                  error.dietsTypes?
+                (<p className={styles.danger}>{error.dietsTypes}</p>)
+                :
+                <span></span>
+                }
              
             </div>
 
@@ -170,9 +175,11 @@ export default function AddRecipe() {
 
                 }
               </div>
-             
-                {
+                  
+                { error.image?
                   (<p className={styles.danger}>{error.image}</p>)
+                  :
+                  <span></span>
                 }
               
             </div>
@@ -183,27 +190,33 @@ export default function AddRecipe() {
           
               <label htmlFor="customRange1" className="form-label">Health Score: {input.healthScore}</label>
               <input type="range" defaultValue={0} onChange={(e) => handleChange(e)} className={`${styles.range} form-range`} id="customRange1" min="0" max="100" step="10" name="healthScore" />
-                {(
-                  <p className={styles.danger}>{error.healthScore}</p>
-                )}
+                {error.healthScore?
+                (<p className={styles.danger}>{error.healthScore}</p>)
+                 :
+                 <span></span>
+              }
             
            
 
             <div>
             <label htmlFor="validationTextarea" className="form-label">Summary</label>
             <textarea onChange={(e) => handleChange(e)} name="summary" rows="5" cols="50" placeholder="Wtite a short summary:" value={input.summary} className="form-control" id="validationTextarea" required></textarea>     
-              {(
-                <p className={styles.danger}>{error.summary}</p>
-              )}
+              {error.summary?
+              (<p className={styles.danger}>{error.summary}</p>)
+              :
+              <span></span>
+            }
           
             </div>
       
              <div>
              <label htmlFor="validationTextarea" className="form-label">Instructions</label>
             <textarea onChange={(e) => handleChange(e)} name="steps" rows="5" cols="50" placeholder="Step by step" value={input.steps} className="form-control" id="validationTextarea" required></textarea>
-              {(
-                <p className={styles.danger}>{error.steps}</p>
-              )}
+              {error.steps?
+              (<p className={styles.danger}>{error.steps}</p>)
+              :
+              <span></span>
+              }
              </div>
 
           </div>
