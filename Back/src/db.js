@@ -7,7 +7,6 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
   DB_USER_RENDER, DB_PASSWORD_RENDER, DB_HOST_RENDER,DB_NAME,DB_PORT_RENDER
 } = process.env;
-//postgres://databasefood_user:5uImvrvWiH4qxMCYXbT1Be0UU451iSyN@dpg-ch3fmgiut4m1v1srfjd0-a/databasefood
 
 const sequelize = new Sequelize(`postgres://${DB_USER_RENDER}:${DB_PASSWORD_RENDER}@${DB_HOST_RENDER}:${DB_PORT_RENDER}/${DB_NAME}`, {
    logging: false, // set to console.log to see the raw SQL queries

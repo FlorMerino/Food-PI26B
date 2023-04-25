@@ -6,6 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store'
 import { BrowserRouter } from 'react-router-dom'
+const { REACT_APP_API_URL } = process.env;
+
+
+///para deploy
+axios.defaults.baseURL= REACT_APP_API_URL || "http://localhost:3001"; //react para detectar q sea variable de entorno necesita empezar con REACT_APP
+/////////////////////////////////////////////////////////////////////////////
+
 
 ReactDOM.render(
   <React.StrictMode>
