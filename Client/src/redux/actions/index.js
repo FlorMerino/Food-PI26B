@@ -14,7 +14,7 @@ export const FILTER_BY_TYPE  = 'FILTER_BY_TYPE'
 
 export function fetchRecipes() {
     return function(dispatch) {
-        axios.get('api/recipes')
+        axios.get('/api/recipes')
         .then((recipes) => {
             dispatch({
                 type: FETCH_RECIPES,
