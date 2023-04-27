@@ -10,7 +10,7 @@ export default function ArrowUpBTN() {
     let scroll= document.documentElement.scrollTop;
     let path= document.URL
   
-    if(path === 'https://food-pi-26-b.vercel.app/' || path === 'https://food-pi-26-b.vercel.app/#recipes'){
+    if(path === 'https://food-pi-26-b.vercel.app/' || path === 'https://food-pi-26-b.vercel.app/#firstRecipe' || path === 'https://food-pi-26-b.vercel.app/#recipes'){
       if( scroll>950){
         
          buttonUp.style.transform ="scale(1)";

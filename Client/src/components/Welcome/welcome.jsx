@@ -57,7 +57,7 @@ export default function Welcome() {
                             <a href="https://www.healthkart.com/connect/balanced-diet-what-is-it-and-how-to-achieve-it/" target="_blank"> <img src="../imgs/BalanceDiet.png" class="d-block w-100" alt="Balance diet" /></a> {/*las imagenes deben estar guardadas en public siempre y cuando sea img estaticas*/}
                         </div>
                         <div class="carousel-item">
-                            <a href="https://betterme.world/articles/different-types-of-diets/" target="_blank"><img src="../imgs/diets.png" class="d-block w-100" alt="diets" /></a>
+                            <a href="https://betterme.world/articles/different-types-of-diets/" target="_blank"><img src="../imgs/diets1.png" class="d-block w-100" alt="diets" /></a>
                         </div>
                         <div class="carousel-item">
                             <a href="https://www.2adays.com/blog/nutrition-for-athletes-overview/" target="_blank"> <img src="../imgs/nutrition.png" class="d-block w-100" alt="nutrition" /></a>
