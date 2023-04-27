@@ -6,3 +6,6 @@
 .conteinerSearch button{
     background-color:tan;
 }
+.btnSearch{
+    z-index: 0;
+}

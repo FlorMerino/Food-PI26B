@@ -28,7 +28,7 @@ export default function SearchBar({ setPage }) {
        
         <div class={`input-group mb-3 ${styles.conteinerSearch}`} >
             <input type="text" class="form-control" placeholder="Search recipe..." onChange={onInputChange} value={search} aria-label="Recipient's username" aria-describedby="button-addon2"/>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={event=> onSubmit(event)}> <BiSearchAlt2></BiSearchAlt2></button>
+            <button class={`btn btn-outline-secondary ${styles.btnSearch}`} type="button" id="button-addon2" onClick={event=> onSubmit(event)}> <BiSearchAlt2></BiSearchAlt2></button>
         </div>
     )
 }

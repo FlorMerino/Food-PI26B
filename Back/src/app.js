@@ -25,7 +25,10 @@ server.use(express.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 // server.use(cors(corsOptions));
+
 server.use((req, res, next) => {
+   //donde va * va http://localhost:3000 sino estuviera deployado el front
+   //* significa que funcione con cuanquier url de front, pero deberia ir la url q tuvieramos de front 
   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

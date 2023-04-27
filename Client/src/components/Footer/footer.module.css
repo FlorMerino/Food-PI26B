@@ -90,9 +90,7 @@ padding: 0;
 .social_profile ul li a svg{
   vertical-align: bottom;
 }
-.social_profile p{
-  font-size: 1rem;
-}
+
 @media only screen and (max-width:768px) { 
 .social_profile ul li a{margin-right:10px;margin-bottom:10px;}
 }
@@ -113,7 +111,7 @@ border:0px;
     margin-top: 70px;
     padding-top: 40px;
     color:#fff;
-    font-size: 15px;
+    font-size: 19px;
     border-top: 1px solid rgba(255,255,255,0.4);
     text-align: center;
 }

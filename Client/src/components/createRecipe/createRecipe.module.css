@@ -43,7 +43,7 @@
     padding-right: 1rem;
     padding-left: 1rem;
     border-radius: 0.5rem;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .containerForm2,
@@ -139,7 +139,7 @@
 .danger {
     display: inline;
     color: var(--danger);
-    font-size: 14px;
+    font-size: 22px;
     padding: 2px;
     margin: 2px;
     background-color: #ffffffc4;

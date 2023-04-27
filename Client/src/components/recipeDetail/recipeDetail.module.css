@@ -98,11 +98,13 @@
 .dietsTypes{
     align-items: flex-start;
     flex-direction: column;
-
     margin-top: 0;
     list-style-type: square;
 }
-
+.dietsTypes li{
+    font-family:'Darker Grotesque', sans-serif ;
+    font-size: 23px;
+}
 .loading{
     justify-content: center;
 }

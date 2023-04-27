@@ -12,7 +12,10 @@
   min-height: 100vh; /* tamaño fijo del body */
   min-width: 100vw;
 }
-
+p, label{
+  font-family:'Darker Grotesque', sans-serif ;
+  font-size: 23px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

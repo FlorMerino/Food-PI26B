@@ -9,6 +9,8 @@
 }
 .pag ul{
     margin-bottom: 0rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 .pag button{
     font-family: cursive;
@@ -19,7 +21,7 @@
     border-color: rgb(0, 0, 0) important! ;
     border-style:none;
     cursor: pointer;
-    margin: 20px;
+    margin: 1rem;
     color: white;
 }
 
